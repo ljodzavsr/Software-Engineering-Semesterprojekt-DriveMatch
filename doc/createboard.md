@@ -15,9 +15,9 @@
 > Mangel an Transparenz bei der Qualität der Fahrlehrer, unflexible Terminplanung, komplizierte Buchungsprozesse.
 
 ## IDEENPOTENZIAL
-Mehrwert: 🔵🔵🔵🔵🔵⚪️⚪️⚪️⚪️⚪️ (5/10)
-Übertragbarkeit: 🔵🔵🔵🔵⚪️⚪️⚪️⚪️⚪️⚪️ (4/10)
-Machbarkeit: 🔵🔵🔵🔵🔵🔵⚪️⚪️⚪️⚪️ (6/10)
+Mehrwert: 🔵🔵🔵🔵🔵⚪️⚪️⚪️⚪️⚪️
+Übertragbarkeit: 🔵🔵🔵🔵⚪️⚪️⚪️⚪️⚪️⚪️
+Machbarkeit: 🔵🔵🔵🔵🔵🔵⚪️⚪️⚪️⚪️
 
 ## DAS WOW
 > Einzigartige Matching-Funktion, die Fahrschüler basierend auf Bewertungen, Standort und persönlichen Präferenzen mit dem idealen Fahrlehrer verbindet.
