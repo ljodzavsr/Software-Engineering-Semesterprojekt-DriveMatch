@@ -1,6 +1,5 @@
 #  EXPLORE BOARD: DriveMatch
 
-
 ## TRENDS & TECHNOLOGIE
 > Einfache Matching-Plattformen, Standortbasierte Dienste.
 
@@ -27,5 +26,3 @@
 
 ## WIE KÖNNEN WIR?
 > Wie können wir eine Plattform entwickeln, die den Fahrschülern ermöglicht, unkompliziert und effizient den passenden Fahrlehrer zu finden und dabei die Qualität der Ausbildung durch Feedback und Anpassungsfähigkeit an individuelle Bedürfnisse verbessert?
-
-
