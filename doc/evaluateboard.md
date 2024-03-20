@@ -22,7 +22,7 @@
 
 > **Transaktionen:** Anzahl der über die Plattform gebuchten Fahrstunden pro Monat.
 
-> **Nutzerbewertungen:** Durchschnittliche Bewertung der Fahrlehrer durch Fahrschüler, als Indikator für die Qualität der Matches.
+> **Nutzerbewertungen:** Durchschnittliche Bewertung der Fahrlehrer durch Fahrschüler.
 
 > **Engagement-Rate:** Die Aktivität der Nutzer auf der Plattform, gemessen an Interaktionen, Bewertungen und Nutzungshäufigkeit.
 
@@ -31,7 +31,3 @@
 ## EINNAHMEQUELLEN
 
 > **Provisionen:** Ein Prozentsatz jeder über die Plattform gebuchten Fahrstunde wird als Provision einbehalten.
-
-> **Werbung:** Platzierung von gezielter Werbung für Fahrschulbedarf, Versicherungen und ähnliche Produkte, die für Fahrschüler relevant sind.
-
-> **Partnerschaften:** Einnahmen durch exklusive Partnerschaften mit Automobilherstellern, Versicherungen und anderen Unternehmen, die Fahrschüler als Zielgruppe haben.
