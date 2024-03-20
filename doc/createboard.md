@@ -6,7 +6,7 @@
 > Eine Plattform, die Fahrschüler und Fahrlehrer zusammenbringt, mit Fokus auf einfache Bedienung und Transparenz.
 
 ## ADRESSIERTE NUTZER
-> Fahrschüler aller Altersgruppen, die nach maßgeschneiderten Fahrstunden suchen; Fahrlehrer, die ihre Dienste anbieten.
+> Fahrschüler aller Altersgruppen, die nach massgeschneiderten Fahrstunden suchen; Fahrlehrer, die ihre Dienste anbieten.
 
 ## ADRESSIERTE BEDÜRFNISSE
 > Zugang zu einer breiten Auswahl an Fahrlehrern, flexible Terminvereinbarung, einfaches Buchungssystem.
@@ -28,7 +28,7 @@ Machbarkeit: Hammer vs. Raumschiff
  🔵🔵🔵🔵🔵🔵⚪️⚪️⚪️⚪️
 
 ## DAS WOW
-> Einzigartige Matching-Funktion, die Fahrschüler basierend auf Bewertungen, Standort und persönlichen Präferenzen mit dem idealen Fahrlehrer verbindet.
+> DriveMatch's intuitive Benutzeroberfläche und das sofortige Buchungssystem schaffen ein 'Wow-Erlebnis', das Nutzer schätzen und das sie gerne weiterempfehlen werden.
 
 ## HIGH-LEVEL-KONZEPT
 > "Tinder für Fahrschüler und Fahrlehrer" – einfach, intuitiv, personalisiert.

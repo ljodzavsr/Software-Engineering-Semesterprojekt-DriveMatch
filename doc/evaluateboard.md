@@ -18,13 +18,7 @@
 
 # Schwer kopierbare Faktoren:
 
-> **Einzigartige Algorithmen:** Präferenzbasiertes Matching.
-
-> **Community und Bewertungen:** Vertrauensaufbau durch Nutzerfeedback.
-
-> **Exklusive Partnerschaften:** Zugang zu führenden Fahrschulen.
-
-> **Hohe Markenbekanntheit und SEO-Optimierung:** Hohe Sichtbarkeit in Suchmaschinen.
+> **Nutzerzentriertes Design & Transparentes Feedback:** Benutzerfreundliche Oberfläche und einfache Buchungsprozesse; Vertrauensbildung durch transparente Bewertungssysteme
 
 ## KPI
 
@@ -45,8 +39,6 @@
 # Monetariesierungsstrategien
 
 > **Provisionen:** Ein Prozentsatz jeder über die Plattform gebuchten Fahrstunde wird als Provision einbehalten.
-
-> **Premium-Mitgliedschaften:** Fahrlehrer können eine Premium-Mitgliedschaft erwerben, die ihnen erweiterte Sichtbarkeit und zusätzliche Funktionen bietet.
 
 > **Werbung:** Platzierung von gezielter Werbung für Fahrschulbedarf, Versicherungen und ähnliche Produkte, die für Fahrschüler relevant sind.
 
