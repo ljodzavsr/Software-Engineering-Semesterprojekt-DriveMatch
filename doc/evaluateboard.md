@@ -2,8 +2,6 @@
 
 ## KANÄLE
 
-# Vertriebs- und Marketingkanäle:
-
 > **Soziale Medien:** Instagram, TikTok, Facebook.
 
 > **E-Mail-Marketing:** Newsletter mit Angeboten und Tipps.
@@ -16,13 +14,9 @@
 
 ## UNFAIRER VORTEIL
 
-# Schwer kopierbare Faktoren:
-
 > **Nutzerzentriertes Design & Transparentes Feedback:** Benutzerfreundliche Oberfläche und einfache Buchungsprozesse; Vertrauensbildung durch transparente Bewertungssysteme
 
 ## KPI
-
-# Messgrössen für den Erfolg
 
 > **Anzahl Nutzer:** Monatliches Wachstum der Fahrschüler und Fahrlehrer auf der Plattform.
 
@@ -35,8 +29,6 @@
 > **Conversion Rate:** Anteil der Website-Besucher, die sich als Nutzer anmelden oder eine Fahrstunde buchen.
 
 ## EINNAHMEQUELLEN
-
-# Monetariesierungsstrategien
 
 > **Provisionen:** Ein Prozentsatz jeder über die Plattform gebuchten Fahrstunde wird als Provision einbehalten.
 
