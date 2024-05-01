@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DrivematchApplication<drivematch>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "ch.zhaw.drivematch.DrivematchApplication",
+            "projectName": "drivematch",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
