@@ -1,4 +1,4 @@
-package ch.zhaw.drivematch.controller;
+package ch.zhaw.babynames.controller;
 
 import java.io.Reader;
 import java.nio.file.Files;
@@ -10,9 +10,13 @@ import java.util.stream.Collectors;
 
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.opencsv.CSVReader;
 
 import ch.zhaw.drivematch.model.Name;
 
@@ -43,15 +47,19 @@ public class NameController {
     }
 
     @GetMapping("/names/name")
-    public List<String> filterNames(@RequestParam String sex, @RequestParam String start,
+    public ResponseEntity<List<String>> filterNames(@RequestParam String sex, @RequestParam String start,
             @RequestParam int length) {
+                
+        if (!sex.equals("w") && !sex.equals("m")) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         List<String> names = listOfNames.stream()
-                .filter(x -> x.getName().startsWith(start))
+                .filter(x -> x.getName().toLowerCase().startsWith(start.toLowerCase()))
                 .filter(x -> x.getName().length() == length)
                 .filter(x -> x.getGeschlecht().equals(sex))
                 .map(x -> x.getName())
                 .collect(Collectors.toList());
-        return names;
+        return new ResponseEntity<>(names,HttpStatus.OK);
     }
 
     @EventListener(ApplicationReadyEvent.class)
