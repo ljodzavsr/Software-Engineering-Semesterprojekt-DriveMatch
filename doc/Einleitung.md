@@ -27,6 +27,8 @@
 ## WIE KÖNNEN WIR?
 > Wie können wir eine intuitive, webbasierte Plattform entwickeln, die es Fahrschülern und Fahrlehrern ermöglicht, auf einfachste Weise miteinander zu interagieren, wobei der Fokus auf der Benutzerfreundlichkeit und der Qualität der Dienstleistung liegt?
 
+
+
 #  CREATE BOARD: DriveMatch
 
 ![Use case diagram](figures/use-case-diagram.drawio.svg)
@@ -64,6 +66,8 @@ Machbarkeit: Hammer vs. Raumschiff
 
 ## WERTVERSPRECHEN
 > Eine Plattform, die Fahrschülern hilft, den besten Fahrlehrer für ihre Bedürfnisse zu finden, und Fahrlehrern ermöglicht, ihre Sichtbarkeit und Auslastung zu erhöhen.
+
+
 
 #  EVALUATE BOARD: DriveMatch
 
