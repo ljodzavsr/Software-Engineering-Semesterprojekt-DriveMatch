@@ -31,8 +31,6 @@
 
 #  CREATE BOARD: DriveMatch
 
-![Use case diagram](figures/use-case-diagram.drawio.svg)
-
 ## IDEEN-BESCHREIBUNG
 > Eine Plattform, die Fahrschüler und Fahrlehrer zusammenbringt, mit Fokus auf einfache Bedienung und Transparenz.
 
