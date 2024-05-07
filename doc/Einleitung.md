@@ -100,3 +100,13 @@ Machbarkeit: Hammer vs. Raumschiff
 ## EINNAHMEQUELLEN
 
 > **Provisionen:** Ein Prozentsatz jeder über die Plattform gebuchten Fahrstunde wird als Provision einbehalten.
+
+---
+
+#  Erkenntnisse aus dem Pitch
+
+## Benutzerdefinierte Filteroptionen für Fahrschüler sollten eingebaut werden
+- **Fahrzeugtyp**: Ermöglicht Fahrschülern die Suche nach spezifischen Fahrzeugtypen (z.B. PKW, Motorrad, LKW).
+- **Getriebeart**: Optionen für manuelle, automatische und semi-automatische Getriebe.
+- **Kraftstoffart**: Filter nach Benzin, Diesel, Elektro und Hybrid, um umweltbewusste Entscheidungen zu unterstützen.
+
