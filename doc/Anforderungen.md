@@ -59,14 +59,6 @@
 > 1. Fahrlehrer loggen sich ein und betrachten ihre bevorstehenden und vergangenen Fahrstunden.
 > 2. Das System zeigt die Buchungen basierend auf der `GET /lessons/{id}` API.
 
-## Feedback geben
-> **Ziel**: Fahrschüler geben Feedback zu einer Fahrstunde.
-> 
-> **Ablauf**:
-> 1. Fahrschüler wählen die abgeschlossene Fahrstunde aus.
-> 2. Fahrschüler geben Feedback in einem vorgegebenen Format.
-> 3. Das System speichert das Feedback.
-
 
 ---
 
