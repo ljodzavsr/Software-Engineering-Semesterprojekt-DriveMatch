@@ -83,7 +83,7 @@ Machbarkeit: Hammer vs. Raumschiff
 
 ## UNFAIRER VORTEIL
 
-> **Nutzerzentriertes Design & Transparentes Feedback:** Benutzerfreundliche Oberfläche und einfache Buchungsprozesse; Vertrauensbildung durch transparente Bewertungssysteme
+> **Nutzerzentriertes Design & Transparentes Feedback:** Benutzerfreundliche Oberfläche und einfache Buchungsprozesse; Vertrauensbildung durch transparente Bewertungssysteme.
 
 ## KPI
 
