@@ -1,6 +1,10 @@
-# USE CASE BESCHREIBUNG: DriveMatch
+# USE-CASE Diagramm: DriveMatch
 
 ![Use case diagram](figures/use-case-diagram.drawio.svg)
+
+---
+
+# USE-CASE BESCHREIBUNG: DriveMatch
 
 ## Fahrlehrer suchen
 > **Ziel**: Fahrschüler können effektiv nach Fahrlehrern suchen, die ihren spezifischen Bedürfnissen entsprechen.
