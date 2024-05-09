@@ -139,87 +139,53 @@ Das ER-Modell von DriveMatch beschreibt die Kernentitäten `Student`, `Instructo
 ## Prozessbeschreibung
 Das erweiterte BPMN umfasst alle Kernprozesse der Interaktion zwischen Fahrschülern und Fahrlehrern auf der DriveMatch Plattform, inklusive Profilverwaltung, Such- und Buchungsvorgänge, Bewertungen, sowie Verfügbarkeits- und Buchungsmanagement.
 
-## Kernprozesse
+### 1. Profilverwaltung
+- **Start Event**: Der Benutzer erreicht die Profilverwaltung.
+- **Task**: Benutzer füllt das Profilformular aus.
+- **End Event**: Das System speichert das Profil mittels `POST /users`.
 
-### Profilmanagement
-#### Start Event: "Profil erstellen/verwalten"
-- **Beschreibung**: Benutzer starten den Prozess der Profilerstellung oder -aktualisierung.
-  
-#### Aufgabe: "Profilformular ausfüllen"
-- **Beschreibung**: Benutzer füllen ein Formular mit persönlichen Daten aus.
+### 2. Fahrlehrer suchen
+- **Start Event**: Fahrschüler startet die Suche.
+- **Task**: Eingabe der Suchkriterien durch den Fahrschüler.
+- **Task**: System führt Suche durch (`GET /instructors`).
+- **End Event**: Anzeige der Suchergebnisse.
 
-#### Aufgabe: "Profil speichern"
-- **Beschreibung**: Das System speichert das Profil mittels `POST /students` oder `POST /instructors`.
+### 3. Fahrlehrerprofil anzeigen
+- **Start Event**: Fahrschüler wählt einen Fahrlehrer aus der Suchliste.
+- **Task**: Anzeigen des Profils des Fahrlehrers (`GET /instructors/{id}`).
+- **End Event**: Detaillierte Informationen werden angezeigt.
 
-#### End Event: "Profil erstellt/aktualisiert"
-- **Beschreibung**: Bestätigung, dass das Profil erfolgreich erstellt oder aktualisiert wurde.
+### 4. Fahrstunde buchen
+- **Start Event**: Fahrschüler entscheidet sich, eine Stunde zu buchen.
+- **Task**: Auswahl von Fahrlehrer und Termin.
+- **Task**: System bucht die Stunde (`POST /lessons`).
+- **End Event**: Bestätigung der Buchung.
 
-### Suche und Buchung von Fahrstunden
-#### Start Event: "Fahrstunde buchen"
-- **Beschreibung**: Fahrschüler starten den Buchungsprozess.
+### 5. Bewertung schreiben
+- **Start Event**: Fahrschüler sieht Buchungen ein.
+- **Task**: Fahrschüler wählt eine abgeschlossene Fahrstunde.
+- **Exclusive Gateway**: Entscheidung, ob eine Bewertung abgegeben wird.
+- **Task**: Eingabe der Bewertung.
+- **Task**: System speichert die Bewertung (`POST /reviews`).
+- **End Event**: Bewertung wird im Fahrlehrerprofil angezeigt.
 
-#### Aufgabe: "Fahrlehrer suchen"
-- **Beschreibung**: Fahrschüler geben Suchkriterien ein.
+### 6. Buchungen einsehen (Fahrschüler)
+- **Start Event**: Fahrschüler loggt sich ein.
+- **Task**: Navigation zum Abschnitt „Meine Buchungen“.
+- **Task**: System zeigt Buchungen an.
+- **End Event**: Anzeige der Buchungsliste.
 
-#### Exklusives Gateway: "Fahrlehrer gefunden?"
-- **Beschreibung**: Überprüfung der Verfügbarkeit.
+### 7. Verfügbarkeiten pflegen (Fahrlehrer)
+- **Start Event**: Fahrlehrer loggt sich ein.
+- **Task**: Fahrlehrer aktualisiert Verfügbarkeiten.
+- **Task**: System speichert die aktualisierten Verfügbarkeiten.
+- **End Event**: Verfügbarkeiten sind aktualisiert.
 
-#### Aufgabe: "Fahrlehrerprofil anzeigen"
-- **Beschreibung**: Anzeigen von Profildetails.
-
-#### Aufgabe: "Fahrstunde auswählen und buchen"
-- **Beschreibung**: Auswahl von Datum und Uhrzeit.
-
-#### Aufgabe: "Buchungsanfrage senden"
-- **Beschreibung**: Die Anfrage wird verarbeitet.
-
-#### Exklusives Gateway: "Buchung bestätigt?"
-- **Beschreibung**: Fahrlehrer bestätigt oder lehnt die Buchung ab.
-
-#### End Event: "Buchung erfolgreich/abgelehnt"
-- **Beschreibung**: Fahrschüler erhalten eine Rückmeldung.
-
-### Bewertungen
-#### Start Event: "Bewertung abgeben"
-- **Beschreibung**: Fahrschüler starten den Bewertungsprozess.
-
-#### Aufgabe: "Bewertungsformular ausfüllen"
-- **Beschreibung**: Details zur Bewertung werden eingegeben.
-
-#### Aufgabe: "Bewertung speichern"
-- **Beschreibung**: Das System speichert die Bewertung mittels `POST /reviews`.
-
-#### End Event: "Bewertung abgeschlossen"
-- **Beschreibung**: Die Bewertung wurde gespeichert.
-
-### Verfügbarkeiten pflegen
-#### Start Event: "Verfügbarkeiten aktualisieren"
-- **Beschreibung**: Fahrlehrer aktualisieren ihre Verfügbarkeiten.
-
-#### Aufgabe: "Verfügbarkeiten eintragen"
-- **Beschreibung**: Neue Verfügbarkeiten werden eingetragen.
-
-#### Aufgabe: "Verfügbarkeiten speichern"
-- **Beschreibung**: Das System speichert die aktualisierten Verfügbarkeiten.
-
-#### End Event: "Verfügbarkeiten aktualisiert"
-- **Beschreibung**: Bestätigung der Aktualisierung.
-
-### Buchungen einsehen (für Fahrschüler)
-#### Start Event: "Buchungen einsehen"
-- **Beschreibung**: Fahrschüler entscheiden sich, ihre Buchungen einzusehen.
-
-#### Aufgabe: "Login"
-- **Beschreibung**: Fahrschüler loggen sich ein.
-
-#### Aufgabe: "Navigieren zur Buchungsübersicht"
-- **Beschreibung**: Fahrschüler navigieren zur entsprechenden Seite.
-
-#### Aufgabe: "Buchungen anzeigen"
-- **Beschreibung**: Das System zeigt die Buchungen an.
-
-#### End Event: "Buchungen eingesehen"
-- **Beschreibung**: Fahrschüler haben eine Übersicht ihrer Buchungen erhalten.
+### 8. Buchungen verwalten (Fahrlehrer)
+- **Start Event**: Fahrlehrer loggt sich ein.
+- **Task**: Anzeigen bevorstehender und vergangener Fahrstunden.
+- **Task**: System zeigt die Buchungen basierend auf `GET /lessons/{id}`.
+- **End Event**: Fahrlehrer hat eine Übersicht der Buchungen.
 
 ## Erläuterungen
 Dieses umfassende BPMN stellt sicher, dass alle Interaktionen und Transaktionen auf der DriveMatch Plattform vollständig abgebildet und in den Entwicklungsprozess integriert werden. Jeder Prozess wird klar definiert und bietet eine detaillierte Grundlage für die Implementierung der Plattform.
@@ -228,51 +194,63 @@ Dieses umfassende BPMN stellt sicher, dass alle Interaktionen und Transaktionen 
 ---
 
 
-# UI Mockup für DriveMatch
+# Fahrschüler UI-Mockup für DriveMatch
 
-## Hauptlayout
+## Hauptnavigation
+- **Logo**: Klick führt zurück zur Startseite.
+- **Menüpunkte**:
+  - **Suche**: Zugriff auf erweiterte Suche, um Fahrlehrer nach verschiedenen Kriterien zu filtern.
+  - **Meine Buchungen**: Übersicht über alle gebuchten und vergangenen Fahrstunden.
+  - **Profil**: Verwaltung des eigenen Profils und Einstellungen.
+  - **Logout**: Abmelden von der Plattform.
 
-### Navigationsleiste
-- **Position**: Oben am Bildschirm.
-- **Elemente**:
-  - **Logo**: Links ausgerichtet, klickbar, führt zurück zur Startseite.
-  - **Home**: Startseite Link.
-  - **Suche**: Zugang zur Suchfunktion.
-  - **Meine Buchungen**: Übersicht der gebuchten und vergangenen Fahrstunden.
-  - **Profil**: Zugang zu persönlichen Einstellungen und Account-Management.
-  - **Logout**: Ausloggen aus dem System.
+## Startseite
+- **Willkommensnachricht**: Kurze Einführung und Empfehlungen basierend auf bisherigen Aktivitäten.
+- **Schnellsuche**: Einfaches Suchfeld für schnelle Suchanfragen.
 
-### Suchbereich
-- **Position**: Zentriert auf der Startseite.
-- **Funktion**:
-  - **Suchfeld**: Ermöglicht das schnelle Finden von Fahrlehrern nach Schlüsselworten.
-  - **Erweiterte Suche**: Optionen für detaillierte Suchkriterien (z.B. Standort, Fahrzeugtyp, Verfügbarkeit).
+## Suchergebnisseite
+- **Suchergebnisse**: Liste der Fahrlehrer, die den Suchkriterien entsprechen.
+- **Filteroptionen**: Ermöglicht das Verfeinern der Suche basierend auf Standort, Fahrzeugtyp, Getriebeart, Kraftstoffart und Bewertung.
+- **Profilansicht-Button**: Direkter Link zur detaillierten Ansicht des Fahrlehrerprofils.
 
-### Profilseiten
-- **Fahrlehrer Profil**:
-  - **Profilfoto**
-  - **Kontaktinformationen**
-  - **Qualifikationen**
-  - **Verfügbarkeitskalender**
-  - **Bewertungen**
-- **Fahrschüler Profil**:
-  - **Profilfoto**
-  - **Kontaktinformationen**
-  - **Buchungshistorie**
-  - **Bewertungen abgegeben**
+## Buchungsseite
+- **Kalender**: Auswahl von verfügbaren Terminen des gewählten Fahrlehrers.
+- **Buchungsdetails**: Formular zur Eingabe spezifischer Wünsche für die Fahrstunde.
+- **Buchungsbestätigung**: Übersicht und Bestätigung der getätigten Buchung.
 
-### Buchungsseite
-- **Kalenderansicht** für Verfügbarkeiten.
-- **Auswahlwerkzeuge** für Datum und Uhrzeit.
-- **Buchungsbutton** zur Bestätigung der Fahrstunde.
+## Mein Profil
+- **Persönliche Daten**: Formular zur Bearbeitung persönlicher Informationen wie Name und Kontakt.
+- **Passwort ändern**: Option zur Aktualisierung des Passworts.
+- **Speichern**: Button zum Speichern der Änderungen.
 
-### Bewertungsseite
-- **Listendarstellung** aller abgeschlossenen, aber noch nicht bewerteten Fahrstunden.
-- **Sternebewertungssystem** und **Textfeld** für Kommentare.
+## Meine Buchungen
+- **Liste der Buchungen**: Anzeige aller aktuellen und vergangenen Buchungen.
+- **Bewertung abgeben**: Möglichkeit, abgeschlossene Fahrstunden zu bewerten und zu kommentieren.
 
-## Designelemente
-- **Farbschema**: Beruhigende Farben wie Blau und Grau, die für eine entspannte Nutzererfahrung sorgen.
-- **Schriftarten**: Klare, gut lesbare Schriftarten.
-- **Buttons**: Groß und farblich abgesetzt, um Benutzeraktionen zu erleichtern.
-- **Responsive Design**: Optimiert für verschiedene Geräte, von Desktops bis hin zu Mobiltelefonen.
+# Fahrlehrer UI-Mockup für DriveMatch
 
+## Hauptnavigation
+- **Logo**: Klick führt zurück zur Startseite.
+- **Menüpunkte**:
+  - **Dashboard**: Übersicht über anstehende Fahrstunden und Bewertungen.
+  - **Verfügbarkeiten verwalten**: Einstellen und Aktualisieren der eigenen Verfügbarkeiten.
+  - **Meine Bewertungen**: Einblick in die erhaltenen Bewertungen und Feedback.
+  - **Profil**: Verwaltung des eigenen Profils und Einstellungen.
+  - **Logout**: Abmelden von der Plattform.
+
+## Dashboard
+- **Anstehende Fahrstunden**: Liste der bevorstehenden Buchungen mit Datum, Uhrzeit und Schülerinformationen.
+- **Letzte Bewertungen**: Anzeige der neuesten Schülerbewertungen.
+
+## Verfügbarkeiten verwalten
+- **Kalender**: Interaktiver Kalender zum Hinzufügen und Bearbeiten verfügbarer Zeiten.
+- **Speichern**: Button zum Speichern der geänderten Verfügbarkeiten.
+
+## Meine Bewertungen
+- **Bewertungsliste**: Anzeige aller erhaltenen Bewertungen, sortiert nach Datum.
+- **Detailansicht**: Möglichkeit, Kommentare und die detaillierte Bewertung einzusehen.
+
+## Mein Profil
+- **Profilinformationen**: Formular zur Bearbeitung der eigenen Daten, wie Qualifikationen und spezielle Fähigkeiten.
+- **Passwort ändern**: Option zur Aktualisierung des Passworts.
+- **Speichern**: Button zum Speichern der Änderungen.
