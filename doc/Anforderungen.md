@@ -194,7 +194,23 @@ Dieses umfassende BPMN stellt sicher, dass alle Interaktionen und Transaktionen 
 ---
 
 
-# *FAHRSCHÜLER UI-MOCKUP*
+# ÖFFENTLICHE INFOSEITE
+
+## Hauptnavigation
+- **Logo**: Klick führt zurück zur Startseite.
+- **Menüpunkte**:
+  - **Über Uns**: Informationen über die Plattform und Dienstleistungen.
+  - **FAQ**: Häufig gestellte Fragen und Antworten.
+  - **Login**: Button zum Einloggen oder Registrieren auf der Plattform.
+
+## Startseite
+- **Einführung**: Kurze Beschreibung der Plattform und ihrer Hauptziele.
+- **Dienstleistungsübersicht**: Auflistung der Hauptdienstleistungen wie Fahrstunden, Fahrlehrersuche und Buchungsmöglichkeiten.
+- **Kontakt**: Kontaktinformationen und Möglichkeit zur Kontaktaufnahme.
+
+---
+
+# FAHRSCHÜLER UI-MOCKUP
 
 ## Hauptnavigation
 - **Logo**: Klick führt zurück zur Startseite.
@@ -227,7 +243,9 @@ Dieses umfassende BPMN stellt sicher, dass alle Interaktionen und Transaktionen 
 - **Liste der Buchungen**: Anzeige aller aktuellen und vergangenen Buchungen.
 - **Bewertung abgeben**: Möglichkeit, abgeschlossene Fahrstunden zu bewerten und zu kommentieren.
 
-# *FAHRLEHRER UI-MOCKUP*
+---
+
+# FAHRLEHRER UI-MOCKUP
 
 ## Hauptnavigation
 - **Logo**: Klick führt zurück zur Startseite.
