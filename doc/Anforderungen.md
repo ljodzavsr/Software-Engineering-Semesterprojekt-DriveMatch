@@ -1,10 +1,10 @@
-# USE-CASE Diagramm: DriveMatch
+# *USE-CASE DIAGRAMM: DriveMatch*
 
 ![Use case diagram](figures/use-case-diagram.drawio.svg)
 
 ---
 
-# USE-CASE BESCHREIBUNG: DriveMatch
+# *USE-CASE BESCHREIBUNG*
 
 ## Profil erstellen/verwalten
 > **Ziel**: Benutzer können ihre eigenen Profile erstellen und verwalten.
@@ -79,7 +79,7 @@
 ---
 
 
-# FACHLICHES DATENMODELL (ER-MODELL): DriveMatch
+# *FACHLICHES DATENMODELL (ER-MODELL)*
 
 ## Entitäten und Beziehungen
 
@@ -134,7 +134,7 @@ Das ER-Modell von DriveMatch beschreibt die Kernentitäten `Student`, `Instructo
 ---
 
 
-# Umfassendes Prozessmodell (BPMN) für DriveMatch
+# *PROZESSMODELL (BPMN)*
 
 ## Prozessbeschreibung
 Das erweiterte BPMN umfasst alle Kernprozesse der Interaktion zwischen Fahrschülern und Fahrlehrern auf der DriveMatch Plattform, inklusive Profilverwaltung, Such- und Buchungsvorgänge, Bewertungen, sowie Verfügbarkeits- und Buchungsmanagement.
@@ -194,7 +194,7 @@ Dieses umfassende BPMN stellt sicher, dass alle Interaktionen und Transaktionen 
 ---
 
 
-# Fahrschüler UI-Mockup für DriveMatch
+# *FAHRSCHÜLER UI-MOCKUP*
 
 ## Hauptnavigation
 - **Logo**: Klick führt zurück zur Startseite.
@@ -227,7 +227,7 @@ Dieses umfassende BPMN stellt sicher, dass alle Interaktionen und Transaktionen 
 - **Liste der Buchungen**: Anzeige aller aktuellen und vergangenen Buchungen.
 - **Bewertung abgeben**: Möglichkeit, abgeschlossene Fahrstunden zu bewerten und zu kommentieren.
 
-# Fahrlehrer UI-Mockup für DriveMatch
+# *FAHRLEHRER UI-MOCKUP*
 
 ## Hauptnavigation
 - **Logo**: Klick führt zurück zur Startseite.
