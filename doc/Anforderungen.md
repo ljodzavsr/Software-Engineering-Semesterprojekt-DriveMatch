@@ -10,7 +10,7 @@
 > **Ziel**: Fahrschüler können effektiv nach Fahrlehrern suchen, die ihren spezifischen Bedürfnissen entsprechen.
 > 
 > **Ablauf**:
-> 1. Fahrschüler geben Suchkriterien wie Verfügbarkeit, Ort, Bewertung und spezielle Filteroptionen (Fahrzeugtyp, Getriebeart, Kraftstoffart) in die Plattform ein.
+> 1. Fahrschüler geben Suchkriterien wie location, vehicleType, transmissionType, fuelType oder rating in die Plattform ein.
 > 2. Das System zeigt eine Liste von Fahrlehrern, die den Kriterien entsprechen, basierend auf der `GET /instructors` API.
 
 ## Fahrlehrerprofil anzeigen
@@ -24,8 +24,8 @@
 > **Ziel**: Benutzer können ihre eigenen Profile erstellen und verwalten.
 > 
 > **Ablauf**:
-> 1. Benutzer füllen ein Formular mit persönlichen Informationen aus.
-> 2. Das System speichert das Profil mittels `POST /students` oder `POST /instructors`.
+> 1. Fahrlehrer und Fahrschüller füllen ein Formular mit persönlichen Informationen aus.
+> 2. Das System speichert das Profil mittels `POST /users`.
 
 ## Verfügbarkeiten pflegen
 > **Ziel**: Fahrlehrer können ihre Verfügbarkeiten aktualisieren.
@@ -41,20 +41,24 @@
 > 1. Fahrschüler wählen einen Fahrlehrer und einen verfügbaren Termin.
 > 2. Das System bucht die Fahrstunde mittels `POST /lessons`.
 
-## Bewertungen lesen
-> **Ziel**: Fahrschüler können Bewertungen von Fahrlehrern lesen.
-> 
-> **Ablauf**:
-> 1. Fahrschüler wählen einen Fahrlehrer aus.
-> 2. Das System zeigt alle verfügbaren Bewertungen über die `GET /reviews/lesson/{lessonId}` API.
-
 ## Bewertung schreiben
-> **Ziel**: Fahrschüler können eine Bewertung für eine abgeschlossene Fahrstunde schreiben.
+> **Ziel**: Fahrschüler können eine Bewertung und einen Kommentar für eine abgeschlossene Fahrstunde direkt über die Seite, auf der sie ihre Buchungen einsehen, verfassen. Diese Bewertungen fließen in das Profil des Fahrlehrers ein und werden dort angezeigt, was die Sichtbarkeit und das Rating des Fahrlehrers verbessert und somit potenzielle neue Buchungen fördert.
 > 
 > **Ablauf**:
-> 1. Fahrschüler wählen die abgeschlossene Fahrstunde aus.
-> 2. Fahrschüler geben eine Bewertung und einen Kommentar ein.
-> 3. Das System speichert die Bewertung mittels `POST /reviews`.
+> 1. **Buchungen einsehen**: Fahrschüler loggen sich in ihr Konto ein und navigieren zum Abschnitt „Meine Buchungen“. Das System zeigt eine Liste der gebuchten und vergangenen Fahrstunden an.
+> 2. **Bewertung auswählen**: Fahrschüler wählen eine abgeschlossene Fahrstunde aus der Liste aus, für die sie eine Bewertung abgeben möchten.
+> 3. **Bewertung eingeben**: Fahrschüler geben eine Sternebewertung und einen Kommentar in das vorgesehene Formular ein.
+> 4. **Bewertung speichern**: Die Bewertung wird mittels `POST /reviews` an das System übermittelt. Der Request beinhaltet die ID der Fahrstunde, die Bewertungszahl, den Kommentar und die ID des Fahrschülers.
+>    - **Request Body**:
+>      ```json
+>      {
+>        "lessonId": "lessonId123",
+>        "studentId": "studentId456",
+>        "rating": 5,
+>        "comment": "Great experience, highly recommend!"
+>      }
+>      ```
+> 5. **Bewertung in Fahrlehrerprofil einfügen**: Nachdem die Bewertung gespeichert wurde, wird sie automatisch im Profil des Fahrlehrers unterhalb seiner beruflichen Informationen angezeigt. Dies hilft anderen Fahrschülern, Einsicht in die Erfahrungen früherer Schüler zu gewinnen und unterstützt den Fahrlehrer bei einer hohen Bewertung, leichter gefunden zu werden, da die Suche und Filterung nach Ratings optimiert wird.
 
 ## Buchungen verwalten
 > **Ziel**: Fahrlehrer können ihre Buchungen einsehen und verwalten.
