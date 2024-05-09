@@ -221,8 +221,54 @@ Das erweiterte BPMN umfasst alle Kernprozesse der Interaktion zwischen Fahrschü
 Dieses umfassende BPMN stellt sicher, dass alle Interaktionen und Transaktionen auf der DriveMatch Plattform vollständig abgebildet und in den Entwicklungsprozess integriert werden. Jeder Prozess wird klar definiert und bietet eine detaillierte Grundlage für die Implementierung der Plattform.
 
 
-   ---
+---
 
 
-   # Mockup oder Skizze des UIs für DriveMatch
+# UI Mockup für DriveMatch
+
+## Hauptlayout
+
+### Navigationsleiste
+- **Position**: Oben am Bildschirm.
+- **Elemente**:
+  - **Logo**: Links ausgerichtet, klickbar, führt zurück zur Startseite.
+  - **Home**: Startseite Link.
+  - **Suche**: Zugang zur Suchfunktion.
+  - **Meine Buchungen**: Übersicht der gebuchten und vergangenen Fahrstunden.
+  - **Profil**: Zugang zu persönlichen Einstellungen und Account-Management.
+  - **Logout**: Ausloggen aus dem System.
+
+### Suchbereich
+- **Position**: Zentriert auf der Startseite.
+- **Funktion**:
+  - **Suchfeld**: Ermöglicht das schnelle Finden von Fahrlehrern nach Schlüsselworten.
+  - **Erweiterte Suche**: Optionen für detaillierte Suchkriterien (z.B. Standort, Fahrzeugtyp, Verfügbarkeit).
+
+### Profilseiten
+- **Fahrlehrer Profil**:
+  - **Profilfoto**
+  - **Kontaktinformationen**
+  - **Qualifikationen**
+  - **Verfügbarkeitskalender**
+  - **Bewertungen**
+- **Fahrschüler Profil**:
+  - **Profilfoto**
+  - **Kontaktinformationen**
+  - **Buchungshistorie**
+  - **Bewertungen abgegeben**
+
+### Buchungsseite
+- **Kalenderansicht** für Verfügbarkeiten.
+- **Auswahlwerkzeuge** für Datum und Uhrzeit.
+- **Buchungsbutton** zur Bestätigung der Fahrstunde.
+
+### Bewertungsseite
+- **Listendarstellung** aller abgeschlossenen, aber noch nicht bewerteten Fahrstunden.
+- **Sternebewertungssystem** und **Textfeld** für Kommentare.
+
+## Designelemente
+- **Farbschema**: Beruhigende Farben wie Blau und Grau, die für eine entspannte Nutzererfahrung sorgen.
+- **Schriftarten**: Klare, gut lesbare Schriftarten.
+- **Buttons**: Groß und farblich abgesetzt, um Benutzeraktionen zu erleichtern.
+- **Responsive Design**: Optimiert für verschiedene Geräte, von Desktops bis hin zu Mobiltelefonen.
 
