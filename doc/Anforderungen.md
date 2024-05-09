@@ -6,8 +6,15 @@
 
 # USE-CASE BESCHREIBUNG: DriveMatch
 
+## Profil erstellen/verwalten
+> **Ziel**: Benutzer können ihre eigenen Profile erstellen und verwalten.
+> 
+> **Ablauf**:
+> 1. Fahrlehrer und Fahrschüller füllen ein Formular mit persönlichen Informationen aus.
+> 2. Das System speichert das Profil mittels `POST /users`.
+
 ## Fahrlehrer suchen
-> **Ziel**: Fahrschüler können effektiv nach Fahrlehrern suchen, die ihren spezifischen Bedürfnissen entsprechen.
+> **Ziel**: Fahrschüler können mithilfe einer Filterfunktion effektiv nach Fahrlehrern suchen, die ihren spezifischen Bedürfnissen entsprechen.
 > 
 > **Ablauf**:
 > 1. Fahrschüler geben Suchkriterien wie location, vehicleType, transmissionType, fuelType oder rating in die Plattform ein.
@@ -19,20 +26,6 @@
 > **Ablauf**:
 > 1. Fahrschüler wählen einen Fahrlehrer aus der Liste.
 > 2. Das System zeigt detaillierte Informationen zum Profil des Fahrlehrers über die `GET /instructors/{id}` API.
-
-## Profil erstellen/verwalten
-> **Ziel**: Benutzer können ihre eigenen Profile erstellen und verwalten.
-> 
-> **Ablauf**:
-> 1. Fahrlehrer und Fahrschüller füllen ein Formular mit persönlichen Informationen aus.
-> 2. Das System speichert das Profil mittels `POST /users`.
-
-## Verfügbarkeiten pflegen
-> **Ziel**: Fahrlehrer können ihre Verfügbarkeiten aktualisieren.
-> 
-> **Ablauf**:
-> 1. Fahrlehrer loggen sich ein und aktualisieren ihre Verfügbarkeiten.
-> 2. Das System speichert die aktualisierten Verfügbarkeiten.
 
 ## Fahrstunde buchen
 > **Ziel**: Fahrschüler können Fahrstunden bei einem Fahrlehrer ihrer Wahl buchen.
@@ -60,13 +53,6 @@
 >      ```
 > 5. **Bewertung in Fahrlehrerprofil einfügen**: Nachdem die Bewertung gespeichert wurde, wird sie automatisch im Profil des Fahrlehrers unterhalb seiner beruflichen Informationen angezeigt. Dies hilft anderen Fahrschülern, Einsicht in die Erfahrungen früherer Schüler zu gewinnen und unterstützt den Fahrlehrer bei einer hohen Bewertung, leichter gefunden zu werden, da die Suche und Filterung nach Ratings optimiert wird.
 
-## Buchungen verwalten
-> **Ziel**: Fahrlehrer können ihre Buchungen einsehen und verwalten.
-> 
-> **Ablauf**:
-> 1. Fahrlehrer loggen sich ein und betrachten ihre bevorstehenden und vergangenen Fahrstunden.
-> 2. Das System zeigt die Buchungen basierend auf der `GET /lessons/{id}` API.
-
 ## Buchungen einsehen
 > **Ziel**: Fahrschüler können ihre aktuellen und vergangenen Buchungen einsehen und überprüfen.
 >
@@ -74,6 +60,20 @@
 > 1. Fahrschüler loggen sich in ihr Konto ein.
 > 2. Sie navigieren zum Abschnitt „Meine Buchungen“ auf der Plattform.
 > 3. Das System zeigt eine Liste der gebuchten und vergangenen Fahrstunden an, einschließlich Details wie Datum, Uhrzeit, Fahrlehrer und Status der Buchung (geplant, abgeschlossen, storniert).
+
+## Verfügbarkeiten pflegen
+> **Ziel**: Fahrlehrer können ihre Verfügbarkeiten aktualisieren.
+> 
+> **Ablauf**:
+> 1. Fahrlehrer loggen sich ein und aktualisieren ihre Verfügbarkeiten.
+> 2. Das System speichert die aktualisierten Verfügbarkeiten.
+
+## Buchungen verwalten
+> **Ziel**: Fahrlehrer können ihre Buchungen einsehen und verwalten.
+> 
+> **Ablauf**:
+> 1. Fahrlehrer loggen sich ein und betrachten ihre bevorstehenden und vergangenen Fahrstunden.
+> 2. Das System zeigt die Buchungen basierend auf der `GET /lessons/{id}` API.
 
 
 ---
