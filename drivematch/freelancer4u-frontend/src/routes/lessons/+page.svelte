@@ -1,68 +1,66 @@
 <script>
-  import { page } from "$app/stores";
   import axios from "axios";
   import { onMount } from "svelte";
 
-  const api_root = $page.url.origin;
-  
+  const api_root = "https://51de3d88-ae18-4d82-a1b8-89d1f1a81403.mock.pstmn.io";
 
-  let jobs = [];
-  let job = {
+  let lessons = [];
+  let lesson = {
     description: null,
-    earnings: null,
-    jobType: null,
+    price: null,
+    lessonType: null,
   };
 
   onMount(() => {
-    getJobs();
+    getLessons();
   });
 
-  function getJobs() {
+  function getLessons() {
     var config = {
       method: "get",
-      url: api_root + "/api/job",
+      url: api_root + "/api/lesson",
       headers: {},
     };
 
     axios(config)
       .then(function (response) {
-        jobs = response.data;
+        lessons = response.data;
       })
       .catch(function (error) {
-        alert("Could not get jobs");
+        alert("Could not get lessons");
         console.log(error);
       });
   }
 
-  function createJob() {
+  function createLesson() {
     var config = {
       method: "post",
-      url: api_root + "/api/job",
+      url: api_root + "/api/lesson",
       headers: {
         "Content-Type": "application/json",
       },
-      data: job,
+      data: lesson,
     };
 
     axios(config)
       .then(function (response) {
-        alert("Job created");
-        getJobs();
+        alert("Lesson created");
+        getLessons();
       })
       .catch(function (error) {
-        alert("Could not create Job");
+        alert("Could not create Lesson");
         console.log(error);
       });
   }
 </script>
 
-<h1 class="mt-3">Create Job</h1>
+<h1 class="mt-3">Create Lesson</h1>
 <form class="mb-5">
   <div class="row mb-3">
     <div class="col">
       <label class="form-label" for="description">Description</label>
       <input
-        bind:value={job.description}
+        bind:value={lesson.description}
         class="form-control"
         id="description"
         type="text"
@@ -72,7 +70,7 @@
   <div class="row mb-3">
     <div class="col">
       <label class="form-label" for="type">Type</label>
-      <select bind:value={job.jobType} class="form-select" id="type">
+      <select bind:value={lesson.lessonType} class="form-select" id="type">
         <option value="OTHER">OTHER</option>
         <option value="TEST">TEST</option>
         <option value="IMPLEMENT">IMPLEMENT</option>
@@ -80,39 +78,39 @@
       </select>
     </div>
     <div class="col">
-      <label class="form-label" for="earnings">Earnings</label>
+      <label class="form-label" for="price">Price</label>
       <input
-        bind:value={job.earnings}
+        bind:value={lesson.price}
         class="form-control"
-        id="earnings"
+        id="price"
         type="number"
       />
     </div>
   </div>
-  <button type="button" class="btn btn-primary" on:click={createJob}
+  <button type="button" class="btn btn-primary" on:click={createLesson}
     >Submit</button
   >
 </form>
 
-<h1>All Jobs</h1>
+<h1>All Lessons</h1>
 <table class="table">
   <thead>
     <tr>
       <th scope="col">Description</th>
       <th scope="col">Type</th>
-      <th scope="col">Earnings</th>
+      <th scope="col">Price</th>
       <th scope="col">State</th>
-      <th scope="col">FreelancerId</th>
+      <th scope="col">InstructorId</th>
     </tr>
   </thead>
   <tbody>
-    {#each jobs as job}
+    {#each lessons as lesson}
       <tr>
-        <td>{job.description}</td>
-        <td>{job.jobType}</td>
-        <td>{job.earnings}</td>
-        <td>{job.jobState}</td>
-        <td>{job.freelancerId}</td>
+        <td>{lesson.description}</td>
+        <td>{lesson.lessonType}</td>
+        <td>{lesson.price}</td>
+        <td>{lesson.lessonState}</td>
+        <td>{lesson.instructorId}</td>
       </tr>
     {/each}
   </tbody>

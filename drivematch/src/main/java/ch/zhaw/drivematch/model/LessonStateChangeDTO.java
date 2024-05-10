@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class JobStateChangeDTO {
-    private String jobId;
-    private String freelancerEmail;
+public class LessonStateChangeDTO {
+    private String lessonId;
+    private String instructorEmail;
 }

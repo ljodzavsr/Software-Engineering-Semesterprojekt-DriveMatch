@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Freelancer4U</a>
+    <a class="navbar-brand" href="/">DriveMatch</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -19,12 +19,12 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/freelancers"
-            >Freelancers</a
+          <a class="nav-link" aria-current="page" href="/instructors"
+            >Instructors</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/jobs">Jobs</a>
+          <a class="nav-link" href="/lessons">Lessons</a>
         </li>
       </ul>
     </div>

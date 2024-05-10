@@ -1,67 +1,66 @@
 <script>
-  import { page } from "$app/stores";
   import axios from "axios";
   import { onMount } from "svelte";
 
-  const api_root = $page.url.origin;
+  const api_root = "https://51de3d88-ae18-4d82-a1b8-89d1f1a81403.mock.pstmn.io";
 
-  let freelancers = [];
-  let freelancer = {
+  let instructors = [];
+  let instructor = {
     id: null,
     email: null,
     name: null,
   };
 
   onMount(() => {
-    getFreelancers();
+    getInstructors();
   });
 
-  function getFreelancers() {
+  function getInstructors() {
     var config = {
       method: "get",
-      url: api_root + "/api/freelancer",
+      url: api_root + "/api/instructor",
       headers: {},
     };
 
     axios(config)
       .then(function (response) {
-        freelancers = response.data;
+        instructors = response.data;
       })
       .catch(function (error) {
-        alert("Could not get freelancers");
+        alert("Could not get instructors");
         console.log(error);
       });
   }
 
-  function createFreelancer() {
+  function createInstructor() {
     var config = {
       method: "post",
-      url: api_root + "/api/freelancer",
+      url: api_root + "/api/instructor",
       headers: {
         "Content-Type": "application/json",
       },
-      data: freelancer,
+      data: instructor,
     };
 
     axios(config)
       .then(function (response) {
-        alert("Freelancer created");
-        getFreelancers();
+        alert("Instructor created");
+        getInstructors();
       })
       .catch(function (error) {
-        alert("Could not create Freelancer");
+        alert("Could not create Instructor");
         console.log(error);
       });
   }
 </script>
 
-<h1 class="mt-3">Create Freelancer</h1>
+<h1 class="mt-3">Create Instructor</h1>
 <form class="mb-5">
   <div class="row mb-3">
     <div class="col">
       <label class="form-label" for="description">Description</label>
       <input
-        bind:value={freelancer.name}
+        bind:value={instructor.name}
         class="form-control"
         id="name"
         type="text"
@@ -72,19 +71,19 @@
     <div class="col">
       <label class="form-label" for="email">E-Mail</label>
       <input
-        bind:value={freelancer.email}
+        bind:value={instructor.email}
         class="form-control"
-        id="earnings"
+        id="price"
         type="email"
       />
     </div>
   </div>
-  <button type="button" class="btn btn-primary" on:click={createFreelancer}
+  <button type="button" class="btn btn-primary" on:click={createInstructor}
     >Submit</button
   >
 </form>
 
-<h1>All Freelancers</h1>
+<h1>All Instructors</h1>
 <table class="table">
   <thead>
     <tr>
@@ -93,10 +92,10 @@
     </tr>
   </thead>
   <tbody>
-    {#each freelancers as freelancer}
+    {#each instructors as instructor}
       <tr>
-        <td>{freelancer.name}</td>
-        <td>{freelancer.email}</td>
+        <td>{instructor.name}</td>
+        <td>{instructor.email}</td>
       </tr>
     {/each}
   </tbody>

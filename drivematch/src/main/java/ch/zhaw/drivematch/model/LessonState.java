@@ -1,5 +1,5 @@
 package ch.zhaw.drivematch.model;
 
-public enum JobState {
+public enum LessonState {
     NEW, ASSIGNED, DONE
 }

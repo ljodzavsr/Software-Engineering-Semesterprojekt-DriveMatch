@@ -7,22 +7,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@RequiredArgsConstructor
 @NoArgsConstructor
-@Document("job")
-public class Job {
+@RequiredArgsConstructor
+@Getter
+@Document("instructor")
+public class Instructor {
     @Id
     private String id;
     @NonNull
-    private String description;
+    private String email;
     @NonNull
-    private JobType jobType;
-    @NonNull
-    private Double earnings;
-    private JobState jobState = JobState.NEW;
-    private String freelancerId;
+    private String name; 
 }

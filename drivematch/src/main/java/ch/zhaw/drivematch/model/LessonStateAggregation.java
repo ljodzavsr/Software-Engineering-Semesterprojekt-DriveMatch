@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Getter
-public class JobStateAggregation {
+public class LessonStateAggregation {
     private String id;
-    private List<String> jobIds;
+    private List<String> lessonIds;
     private String count;
 
 }

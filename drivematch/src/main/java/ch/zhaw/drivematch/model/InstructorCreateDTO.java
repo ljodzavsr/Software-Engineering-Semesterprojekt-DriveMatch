@@ -5,8 +5,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Getter
-public class JobCreateDTO {
-    private String description;
-    private JobType jobType;
-    private Double earnings;
+public class InstructorCreateDTO {
+    private String email;
+    private String name;
 }

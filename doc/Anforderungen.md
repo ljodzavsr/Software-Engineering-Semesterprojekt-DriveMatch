@@ -9,10 +9,10 @@
 ### Mitarbeiter DriveMatch
 
 #### Fahrstunden anzeigen
-> **Ziel**: Ermöglicht es Mitarbeitern, alle geplanten Fahrstunden einzusehen.
+> **Ziel**: Ermöglicht es Mitarbeitern von DriveMatch und registrierten Fahrlehrern, alle geplanten Fahrstunden einzusehen.
 > 
 > **Ablauf**:
-> 1. Der Mitarbeiter navigiert zur Option "Fahrstunden anzeigen".
+> 1. Der Mitarbeiter oder der Fahrlehrer navigiert zur Option "Fahrstunden anzeigen".
 > 2. Das System listet alle geplanten Fahrstunden auf.
 
 #### Fahrstunde planen
