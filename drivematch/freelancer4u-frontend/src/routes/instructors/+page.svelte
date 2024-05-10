@@ -1,4 +1,5 @@
 <script>
+  import { page } from "$app/stores";
   import axios from "axios";
   import { onMount } from "svelte";
 

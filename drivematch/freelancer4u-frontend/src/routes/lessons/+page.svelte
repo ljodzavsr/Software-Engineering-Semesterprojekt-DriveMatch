@@ -1,4 +1,5 @@
 <script>
+  import { page } from "$app/stores";
   import axios from "axios";
   import { onMount } from "svelte";
 
@@ -54,6 +55,7 @@
   }
 </script>
 
+<!-- svelte-ignore missing-declaration -->
 <h1 class="mt-3">Create Lesson</h1>
 <form class="mb-5">
   <div class="row mb-3">
