@@ -1,8 +1,8 @@
-import { createAuth0Client } from "@auth0/auth0-spa-js"; // npm install @auth0/auth0-spa-js
-import { user, jwt_token } from "./store";
 import { goto } from '$app/navigation';
+import { createAuth0Client } from "@auth0/auth0-spa-js"; // npm install @auth0/auth0-spa-js
 import axios from "axios";
 import config from "./auth.config";
+import { jwt_token, user } from "./store";
 
 let auth0Client;
 
@@ -86,7 +86,7 @@ function login(username, password, redirectToHome = false) {
         // go to start page after 500ms. Explanation: if we do not wait, the login form on the
         // start page might still be visible because $isAuthenticated is not yet set to true.
         setTimeout(() => {
-          goto("/") 
+          goto("/")
         }, 500);
       }
     })
@@ -122,7 +122,7 @@ async function logout() {
     await createClient();
     user.set({});
     jwt_token.set("");
-    await auth0Client.logout({logoutParams:{returnTo: window.location.origin}});
+    await auth0Client.logout({ logoutParams: { returnTo: window.location.origin } });
   } catch (e) {
     console.error(e);
   }
