@@ -1,6 +1,6 @@
 <script>
-  import { isAuthenticated } from "../../store";
   import auth from "../../auth.service";
+  import { isAuthenticated } from "../../store";
 
   let email = "";
   let password = "";
