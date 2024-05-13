@@ -8,9 +8,9 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN cd freelancer4u-frontend && npm install
-RUN cd freelancer4u-frontend && npm run build
-RUN rm -r freelancer4u-frontend
+RUN cd drivematch-frontend && npm install
+RUN cd drivematch-frontend && npm run build
+RUN rm -r drivematch-frontend
 
 RUN sed -i 's/\r$//' mvnw
 RUN chmod +x mvnw
