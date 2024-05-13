@@ -6,7 +6,7 @@
 
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Freelancer4U</a>
+    <a class="navbar-brand" href="/">DriveMatch</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -22,14 +22,14 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {#if $isAuthenticated}
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/freelancers"
-              >Freelancers</a
+            <a class="nav-link" aria-current="page" href="/instructors"
+              >Instructors</a
             >
           </li>
         {/if}
         {#if $isAuthenticated}
           <li class="nav-item">
-            <a class="nav-link" href="/jobs">Jobs</a>
+            <a class="nav-link" href="/lessons">Lessons</a>
           </li>
         {/if}
       </ul>

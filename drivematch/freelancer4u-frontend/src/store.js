@@ -1,4 +1,4 @@
-import { writable, derived } from "svelte/store";
+import { derived, writable } from "svelte/store";
 
 // user 
 export const user = writable({});
@@ -19,9 +19,9 @@ export const isAuthenticated = derived(
     $user => $user && $user.name
 );
 
-// jwt_token and myFreelancerId
+// jwt_token and myInstructorId
 export const jwt_token = writable("");
-export const myFreelancerId = writable(null);
+export const myInstructorId = writable(null);
 let sessionToken = sessionStorage.getItem("jwt_token");
 if (sessionToken) {
     jwt_token.set(sessionToken);

@@ -3,7 +3,7 @@
   import axios from "axios";
   import { onMount } from "svelte";
 
-  const api_root = $page.url.origin; 
+  const api_root = $page.url.origin;
 
   let lessons = [];
   let lesson = {
@@ -76,8 +76,6 @@
         <option value="TEST">TEST</option>
         <option value="IMPLEMENT">IMPLEMENT</option>
         <option value="REVIEW">REVIEW</option>
-        <option value="PRACTICAL">PRACTICAL</option>
-        <option value="THEORY">THEORY</option>
       </select>
     </div>
     <div class="col">
