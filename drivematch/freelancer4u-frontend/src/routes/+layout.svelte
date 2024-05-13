@@ -31,8 +31,19 @@
           <li class="nav-item">
             <a class="nav-link" href="/lessons">Lessons</a>
           </li>
+
+
+
+          {/if}
+          {#if $isAuthenticated}
+            <li class="nav-item">
+              <a class="nav-link" href="/account">Account</a>
+            </li>
+
         {/if}
       </ul>
+
+
       <div class="d-flex">
         {#if $isAuthenticated}
           <span class="navbar-text me-2">{$user.name}</span>
