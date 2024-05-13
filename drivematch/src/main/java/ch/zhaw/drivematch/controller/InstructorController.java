@@ -35,9 +35,7 @@ public class InstructorController {
             @RequestBody InstructorCreateDTO fDTO, @AuthenticationPrincipal Jwt jwt) {
                 if (!roleService.hasRole("admin", jwt)) {
                     return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-                }
-
-
+        }
         Instructor fDAO = new Instructor(fDTO.getEmail(), fDTO.getName());
         Instructor f = instructorRepository.save(fDAO);
         return new ResponseEntity<>(f, HttpStatus.CREATED);

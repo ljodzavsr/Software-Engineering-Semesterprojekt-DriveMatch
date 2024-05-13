@@ -36,8 +36,6 @@ public class LessonController {
         if (!roleService.hasRole("admin", jwt)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
-        
-        
         Lesson jDAO = new Lesson(cDTO.getDescription(), cDTO.getLessonType(), cDTO.getPrice());
         Lesson j = lessonRepository.save(jDAO);
         return new ResponseEntity<>(j, HttpStatus.CREATED);
