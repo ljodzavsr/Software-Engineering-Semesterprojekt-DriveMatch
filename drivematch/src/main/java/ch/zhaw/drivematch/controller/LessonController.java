@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +19,7 @@ import ch.zhaw.drivematch.model.LessonCreateDTO;
 import ch.zhaw.drivematch.model.LessonStateAggregation;
 import ch.zhaw.drivematch.model.LessonType;
 import ch.zhaw.drivematch.repository.LessonRepository;
+import ch.zhaw.drivematch.service.RoleService;
 
 @RestController
 @RequestMapping("/api")
@@ -25,8 +28,16 @@ public class LessonController {
     @Autowired
     LessonRepository lessonRepository;
 
+    @Autowired
+    RoleService roleService;
+
     @PostMapping("/lesson")
-    public ResponseEntity<Lesson> createLesson(@RequestBody LessonCreateDTO cDTO) {
+    public ResponseEntity<Lesson> createLesson(@RequestBody LessonCreateDTO cDTO, @AuthenticationPrincipal Jwt jwt) {
+        if (!roleService.hasRole("admin", jwt)) {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
+        
+        
         Lesson jDAO = new Lesson(cDTO.getDescription(), cDTO.getLessonType(), cDTO.getPrice());
         Lesson j = lessonRepository.save(jDAO);
         return new ResponseEntity<>(j, HttpStatus.CREATED);

@@ -2,6 +2,7 @@
   import { page } from "$app/stores";
   import axios from "axios";
   import { onMount } from "svelte";
+  import { jwt_token, user } from "../../store";
 
   const api_root = $page.url.origin;
 
@@ -20,7 +21,7 @@
     var config = {
       method: "get",
       url: api_root + "/api/lesson",
-      headers: {},
+      headers: { Authorization: "Bearer " + $jwt_token }
     };
 
     axios(config)
@@ -39,6 +40,7 @@
       url: api_root + "/api/lesson",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "Bearer " + $jwt_token
       },
       data: lesson,
     };
@@ -55,6 +57,7 @@
   }
 </script>
 
+{#if $user.user_roles && $user.user_roles.length > 0}
 <h1 class="mt-3">Create Lesson</h1>
 <form class="mb-5">
   <div class="row mb-3">
@@ -92,6 +95,7 @@
     >Submit</button
   >
 </form>
+{/if}
 
 <h1>All Lessons</h1>
 <table class="table">
