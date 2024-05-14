@@ -15,7 +15,7 @@ import ch.zhaw.drivematch.model.Mail;
 public class MailService {
 
     private static final Logger logger = LoggerFactory.getLogger(MailService.class);
-    private final static String FROM_MAIL = "testdrivematch@outlook.de";
+    private final static String FROM_MAIL = "se2.zhaw@outlook.com";
 
     public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
@@ -23,7 +23,7 @@ public class MailService {
         mailSender.setPort(587);
         
         mailSender.setUsername(FROM_MAIL);
-        mailSender.setPassword("testumgebung123!");
+        mailSender.setPassword("KNR7ZHsFThk5eav");
         
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
