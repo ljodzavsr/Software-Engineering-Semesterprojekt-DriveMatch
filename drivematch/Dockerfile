@@ -14,7 +14,7 @@ RUN rm -r drivematch/freelancer4u-frontend
 
 RUN sed -i 's/\r$//' drivematch/mvnw
 RUN chmod +x drivematch/mvnw
-RUN ./drivematch/mvnw package
+RUN ./mvnw package
 
 EXPOSE 8080
 CMD ["java", "-jar", "/usr/src/app/target/drivematch-0.0.1-SNAPSHOT.jar"]
