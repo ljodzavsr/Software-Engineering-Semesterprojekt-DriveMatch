@@ -10,7 +10,7 @@
   let defaultPageSize = 4;
 
   let instructors = [];
-  let instructors = {
+  let instructor = {
     id: null,
     email: null,
     name: null,
