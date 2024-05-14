@@ -16,9 +16,9 @@
     name: null,
   };
 
-/*   onMount(() => {
+  onMount(() => {
     getFreelancers();
-  }); */ 
+  }); 
 
   $: {
     if ($jwt_token !== "") {
