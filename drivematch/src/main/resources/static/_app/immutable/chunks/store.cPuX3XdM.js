@@ -1,1 +1,0 @@
-import{d as n,w as i}from"./index.BJr1rOyE.js";const s=i({});let t=sessionStorage.getItem("user");t?s.set(JSON.parse(t)):sessionStorage.setItem("user",{});s.subscribe(e=>sessionStorage.setItem("user",JSON.stringify(e)));const g=n(s,e=>e&&e.name),r=i("");let o=sessionStorage.getItem("jwt_token");o?r.set(o):sessionStorage.setItem("jwt_token","");export{g as i,r as j,s as u};
