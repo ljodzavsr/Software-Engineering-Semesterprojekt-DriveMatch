@@ -20,7 +20,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        {#if $isAuthenticated && $user.user_roles && $user.user_roles.includes("admin")}
+        {#if $isAuthenticated && $user.user_roles  && $user.user_roles.includes("admin")}
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/instructors"
               >Instructors</a
@@ -38,7 +38,6 @@
           </li>
         {/if}
       </ul>
-
       <div class="d-flex">
         {#if $isAuthenticated}
           <span class="navbar-text me-2">{$user.name}</span>

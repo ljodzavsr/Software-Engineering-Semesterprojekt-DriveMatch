@@ -3,6 +3,8 @@ package ch.zhaw.drivematch.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -27,7 +29,7 @@ public class LessonController {
 
     @Autowired
     LessonRepository lessonRepository;
-
+    
     @Autowired
     RoleService roleService;
 
@@ -42,19 +44,24 @@ public class LessonController {
     }
 
     @GetMapping("/lesson")
-    public ResponseEntity<List<Lesson>> getAllLessons(
-                @RequestParam(required = false) Double min,
-                @RequestParam(required = false) LessonType type) {
-        List<Lesson> allLessons;
+    public ResponseEntity<Page<Lesson>> getAllJobs(
+            @RequestParam(required = false) Double min,
+            @RequestParam(required = false) LessonType type,
+            @RequestParam(required = false, defaultValue = "1") Integer pageNumber,
+            @RequestParam(required = false, defaultValue = "2") Integer pageSize) {
+        Page<Lesson> allLessons;
         if (min == null && type == null) {
-            allLessons = lessonRepository.findAll();
+            allLessons = lessonRepository.findAll(PageRequest.of(pageNumber - 1, pageSize));
         } else {
             if (min != null && type != null) {
-                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+                allLessons = lessonRepository.findByLessonTypeAndPriceGreaterThan(type, min,
+                        PageRequest.of(pageNumber - 1, pageSize));
             } else if (min != null) {
-                allLessons = lessonRepository.findByPriceGreaterThan(min);
+                allLessons = lessonRepository.findByPriceGreaterThan(min,
+                        PageRequest.of(pageNumber - 1, pageSize));
             } else {
-                allLessons = lessonRepository.findByLessonType(type);
+                allLessons = lessonRepository.findByLessonType(type, PageRequest.of(pageNumber - 1,
+                        pageSize));
             }
         }
         return new ResponseEntity<>(allLessons, HttpStatus.OK);

@@ -2,9 +2,16 @@
   import { page } from "$app/stores";
   import axios from "axios";
   import { onMount } from "svelte";
-  import { jwt_token, user } from "../../store";
+  import { jwt_token, myInstructorId, user } from "../../store";
 
   const api_root = $page.url.origin;
+
+  let currentPage;
+  let nrOfPages = 0;
+  let defaultPageSize = 4;
+
+  let priceMin;
+  let lessonType;
 
   let lessons = [];
   let lesson = {
@@ -13,20 +20,51 @@
     lessonType: null,
   };
 
-  onMount(() => {
-    getLessons();
-  });
+  // Teilaufgabe 2e)
+  //let myInstructorId;
+
+  $: {
+    if ($jwt_token !== "") {
+      let searchParams = $page.url.searchParams;
+
+      if (searchParams.has("page")) {
+        currentPage = searchParams.get("page");
+      } else {
+        currentPage = "1";
+      }
+      getLessons();
+    }
+  }
+
+   onMount(() => {
+    // Teilaufgabe 2e)
+    // Die Instructor ID könnte man auch im reactive statement holen,
+    // dann wird der Endpoint aber unnötig oft aufgerufen.
+    getMyInstuctorId();
+  }); 
 
   function getLessons() {
+    let query = "?pageSize=" + defaultPageSize + "&pageNumber=" + currentPage;
+
+    if (priceMin) {
+      query += "&min=" + priceMin;
+    }
+
+    if (lessonType && lessonType !== "ALL") {
+      query += "&type=" + lessonType;
+    }
+
     var config = {
       method: "get",
-      url: api_root + "/api/lesson",
+      url: api_root + "/api/lesson" + query,
       headers: { Authorization: "Bearer " + $jwt_token },
     };
 
     axios(config)
       .then(function (response) {
-        lessons = response.data;
+        lessons = response.data.content;
+
+        nrOfPages = response.data.totalPages;
       })
       .catch(function (error) {
         alert("Could not get lessons");
@@ -55,6 +93,59 @@
         console.log(error);
       });
   }
+
+  function assignToMe(lessonId) {
+    var config = {
+      method: "put",
+      url: api_root + "/api/service/me/assignlesson?lessonId=" + lessonId,
+      headers: { Authorization: "Bearer " + $jwt_token },
+    };
+    axios(config)
+      .then(function (response) {
+        getLessons();
+      })
+      .catch(function (error) {
+        alert("Could not assign lesson to me");
+        console.log(error);
+      });
+  }
+
+  function completeMyLesson(lessonId) {
+    var config = {
+      method: "put",
+      url: api_root + "/api/service/me/completelesson?lessonId=" + lessonId,
+      headers: { Authorization: "Bearer " + $jwt_token },
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        getLessons();
+      })
+      .catch(function (error) {
+        alert("Could not mark as completed");
+        console.log(error);
+      });
+  }
+
+  // Teilaufgabe 2e)
+   function getMyInstructorId() {
+    var config = {
+      method: "get",
+      url: api_root + "/api/me/instructor",
+      headers: { Authorization: "Bearer " + $jwt_token },
+    };
+
+    axios(config)
+      .then(function (response) {
+        myInstructorId = response.data.id;
+        console.log(myInstructorId);
+      })
+      .catch(function (error) {
+        alert("Could not get Instructor associated to current user");
+        console.log(error);
+      });
+  } 
 </script>
 
 {#if $user.user_roles && $user.user_roles.length > 0}
@@ -98,6 +189,39 @@
 {/if}
 
 <h1>All Lessons</h1>
+<div class="row my-3">
+  <div class="col-auto">
+    <label for="" class="col-form-label">Price: </label>
+  </div>
+  <div class="col-3">
+    <input
+      class="form-control"
+      type="number"
+      placeholder="min"
+      bind:value={priceMin}
+    />
+  </div>
+  <div class="col-auto">
+    <label for="" class="col-form-label">Lesson Type: </label>
+  </div>
+  <div class="col-3">
+    <select bind:value={lessonType} class="form-select" id="type" type="text">
+      <option value="ALL" />
+      <option value="OTHER">OTHER</option>
+      <option value="TEST">TEST</option>
+      <option value="IMPLEMENT">IMPLEMENT</option>
+      <option value="REVIEW">REVIEW</option>
+    </select>
+  </div>
+
+  <div class="col-3">
+    <a
+      class="btn btn-primary"
+      href={"/lessons?page=1&lessonType=" + lessonType + "&priceMin=" + priceMin}
+      role="button">Apply</a
+    >
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -106,6 +230,7 @@
       <th scope="col">Price</th>
       <th scope="col">State</th>
       <th scope="col">InstructorId</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -116,7 +241,49 @@
         <td>{lesson.price}</td>
         <td>{lesson.lessonState}</td>
         <td>{lesson.instructorId}</td>
+        <td>
+          {#if lesson.lessonState === "ASSIGNED"}
+            <span class="badge bg-secondary">Assigned</span>
+          {:else if lesson.instructorId === null}
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              on:click={() => {
+                assignToMe(lesson.id);
+              }}
+            >
+              Assign to me
+            </button>
+          {/if}
+          {#if lesson.lessonState === "DONE"}
+            <span class="badge bg-secondary">Done</span>
+          {:else if lesson.lessonState === "ASSIGNED" && lesson.instructorId === $myInstructorId}
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              on:click={() => {
+                completeMyLesson(lesson.id);
+              }}
+            >
+              Complete Lesson
+            </button>
+          {/if}
+        </td>
       </tr>
     {/each}
   </tbody>
 </table>
+<nav>
+  <ul class="pagination">
+    {#each Array(nrOfPages) as _, i}
+      <li class="page-item">
+        <a
+          class="page-link"
+          class:active={currentPage == i + 1}
+          href={"/lessons?page=" + (i + 1)}
+          >{i + 1}
+        </a>
+      </li>
+    {/each}
+  </ul>
+</nav>
