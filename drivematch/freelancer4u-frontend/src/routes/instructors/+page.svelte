@@ -74,6 +74,30 @@
         console.log(error);
       });
   }
+
+  function validateEmailAndcreateInstructor(){
+    var config = {
+            method: "get",
+            url: "https://disify.com/api/email/" + instructor.email
+        };
+
+    axios(config)
+        .then(function (response) {
+            console.log("Validated email "+instructor.email);
+            console.log(response.data);
+            if(response.data.format && !response.data.disposable 
+               && response.data.dns){
+                createInstructor();
+            }else{
+                alert("Email "+instructor.email+" is not valid.");
+            }
+        })
+        .catch(function (error) {
+            alert("Could not validate email");
+            console.log(error);
+        });
+}
+
 </script>
 
 <h1 class="mt-3">Create Instructor</h1>
@@ -100,7 +124,7 @@
       />
     </div>
   </div>
-  <button type="button" class="btn btn-primary" on:click={createInstructor}
+  <button type="button" class="btn btn-primary" on:click={validateEmailAndcreateFreelancer}
     >Submit</button
   >
 </form>
