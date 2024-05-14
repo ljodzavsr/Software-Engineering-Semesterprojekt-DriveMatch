@@ -12,9 +12,9 @@ RUN cd drivematch/freelancer4u-frontend && npm install
 RUN cd drivematch/freelancer4u-frontend && npm run build
 RUN rm -r drivematch/freelancer4u-frontend
 
-RUN sed -i 's/\r$//' mvnw
-RUN chmod +x mvnw
-RUN ./mvnw package
+RUN sed -i 's/\r$//' drivematch/mvnw
+RUN chmod +x drivematch/mvnw
+RUN ./drivematch/mvnw package
 
 EXPOSE 8080
 CMD ["java", "-jar", "/usr/src/app/target/drivematch-0.0.1-SNAPSHOT.jar"]
