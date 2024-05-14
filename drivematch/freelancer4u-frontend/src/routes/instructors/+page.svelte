@@ -1,7 +1,6 @@
 <script>
   import { page } from "$app/stores";
   import axios from "axios";
-  import { onMount } from "svelte";
   import { jwt_token } from "../../store";
 
   const api_root = $page.url.origin; 
@@ -17,9 +16,9 @@
     name: null,
   };
 
-   onMount(() => {
-    getInstructors();
-  }); 
+/*   onMount(() => {
+    getFreelancers();
+  }); */ 
 
   $: {
     if ($jwt_token !== "") {
@@ -96,7 +95,7 @@
       <input
         bind:value={instructor.email}
         class="form-control"
-        id="earnings"
+        id="price"
         type="email"
       />
     </div>
