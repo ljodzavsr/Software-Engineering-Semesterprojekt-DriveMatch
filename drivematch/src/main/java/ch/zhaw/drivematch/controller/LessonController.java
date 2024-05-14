@@ -44,7 +44,7 @@ public class LessonController {
     }
 
     @GetMapping("/lesson")
-    public ResponseEntity<Page<Lesson>> getAllJobs(
+    public ResponseEntity<Page<Lesson>> getAllLessons(
             @RequestParam(required = false) Double min,
             @RequestParam(required = false) LessonType type,
             @RequestParam(required = false, defaultValue = "1") Integer pageNumber,
