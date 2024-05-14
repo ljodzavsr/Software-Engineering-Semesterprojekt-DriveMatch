@@ -16,9 +16,9 @@
     name: null,
   };
 
-/*   onMount(() => {
+   onMount(() => {
     getInstructors();
-  }); */
+  }); 
 
   $: {
     if ($jwt_token !== "") {
