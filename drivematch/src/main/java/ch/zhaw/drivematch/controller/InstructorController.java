@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ch.zhaw.drivematch.model.Instructor;
 import ch.zhaw.drivematch.model.InstructorCreateDTO;
 import ch.zhaw.drivematch.repository.InstructorRepository;
+import ch.zhaw.drivematch.service.MailValidatorService;
 import ch.zhaw.drivematch.service.RoleService;
 
 @RestController
@@ -32,12 +33,22 @@ public class InstructorController {
     @Autowired
     RoleService roleService;
 
+    @Autowired
+    MailValidatorService mailValidatorService;
+
     @PostMapping("/instructor")
     public ResponseEntity<Instructor> createInstructor(
             @RequestBody InstructorCreateDTO fDTO, @AuthenticationPrincipal Jwt jwt) {
         if (!roleService.hasRole("admin", jwt)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
+
+        var mailInformation = mailValidatorService.validateEmail(fDTO.getEmail());
+        if (mailInformation.isDisposable() || !mailInformation.isDns() || !mailInformation.isFormat()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+
         Instructor fDAO = new Instructor(fDTO.getEmail(), fDTO.getName());
         Instructor f = instructorRepository.save(fDAO);
         return new ResponseEntity<>(f, HttpStatus.CREATED);

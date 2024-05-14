@@ -124,7 +124,7 @@
       />
     </div>
   </div>
-  <button type="button" class="btn btn-primary" on:click={validateEmailAndcreateFreelancer}
+  <button type="button" class="btn btn-primary" on:click={validateEmailAndcreateInstructor}
     >Submit</button
   >
 </form>
