@@ -25,8 +25,8 @@ public class MailValidatorService {
     public MailValidatorService() {
         this.webClient = WebClient.builder()
                 .baseUrl(DISIFY_EMAIL_VALIDATOR_BASE_URL)
-                .defaultHeader(HttpHeaders.CONTENT_TYPE, 
-                               MediaType.APPLICATION_JSON_VALUE)
+                .defaultHeader(HttpHeaders.CONTENT_TYPE,
+                        MediaType.APPLICATION_JSON_VALUE)
                 .defaultHeader(HttpHeaders.USER_AGENT, USER_AGENT)
                 .filter(ServiceUtils.logRequest(logger))
                 .build();
@@ -39,11 +39,11 @@ public class MailValidatorService {
                 // uri to api
                 .uri("/api/email/" + email)
                 // Proceed to declare how to extract the response.
-                .retrieve() 
+                .retrieve()
                 // mapping to a certain class
-                .bodyToMono(MailInformation.class) 
-                //Optional: pass a timeout for the request
-                //Blocks until next signal is received or the timeout expires
+                .bodyToMono(MailInformation.class)
+                // Optional: pass a timeout for the request
+                // Blocks until next signal is received or the timeout expires
                 .block(REQUEST_TIMEOUT);
     }
 }

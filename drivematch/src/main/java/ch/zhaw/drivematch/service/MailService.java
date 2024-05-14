@@ -15,7 +15,7 @@ import ch.zhaw.drivematch.model.Mail;
 public class MailService {
 
     private static final Logger logger = LoggerFactory.getLogger(MailService.class);
-    private final static String FROM_MAIL = "testdrivematch@outlook.com";
+    private final static String FROM_MAIL = "testdrivematch@outlook.de";
 
     public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
