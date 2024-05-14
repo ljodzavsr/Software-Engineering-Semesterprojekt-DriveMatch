@@ -1,7 +1,6 @@
 <script>
   import { page } from "$app/stores";
   import axios from "axios";
-  import { onMount } from "svelte";
   import { jwt_token, myInstructorId, user } from "../../store";
 
   const api_root = $page.url.origin;
@@ -36,12 +35,12 @@
     }
   }
 
-   onMount(() => {
+ /*  onMount(() => {
     // Teilaufgabe 2e)
     // Die Instructor ID könnte man auch im reactive statement holen,
     // dann wird der Endpoint aber unnötig oft aufgerufen.
     getMyInstuctorId();
-  }); 
+  }); */
 
   function getLessons() {
     let query = "?pageSize=" + defaultPageSize + "&pageNumber=" + currentPage;
@@ -129,7 +128,7 @@
   }
 
   // Teilaufgabe 2e)
-   function getMyInstructorId() {
+   /*  function getMyInstructorId() {
     var config = {
       method: "get",
       url: api_root + "/api/me/instructor",
@@ -145,7 +144,7 @@
         alert("Could not get Instructor associated to current user");
         console.log(error);
       });
-  } 
+  }  */
 </script>
 
 {#if $user.user_roles && $user.user_roles.length > 0}
