@@ -64,10 +64,10 @@ public class LessonController {
             allLessons = lessonRepository.findAll(PageRequest.of(pageNumber - 1, pageSize));
         } else {
             if (max != null && type != null) {
-                allLessons = lessonRepository.findByLessonTypeAndPriceGreaterThan(type, max,
+                allLessons = lessonRepository.findByLessonTypeAndPriceSmallerThan(type, max,
                         PageRequest.of(pageNumber - 1, pageSize));
             } else if (max != null) {
-                allLessons = lessonRepository.findByPriceGreaterThan(max,
+                allLessons = lessonRepository.findByPriceSmallerThan(max,
                         PageRequest.of(pageNumber - 1, pageSize));
             } else {
                 allLessons = lessonRepository.findByLessonType(type, PageRequest.of(pageNumber - 1,
