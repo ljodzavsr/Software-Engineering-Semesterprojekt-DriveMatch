@@ -43,7 +43,7 @@ public class LessonController {
         if (!roleService.hasRole("admin", jwt)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
-         var chatGPTResponse = chatGPTService.chatWithChatGpt("Erstlele mir eine kurze Beschreibung für die Fahrstunde: " + cDTO.getDescription());
+         var chatGPTResponse = chatGPTService.chatWithChatGpt("Erstelle mir eine kurze Beschreibung für die Fahrstunde (Preis in Schweizer Franken): " + cDTO.getDescription() + cDTO.getLessonType() + cDTO.getPrice());
         var choice = chatGPTResponse.getChoices().stream().findFirst().orElseThrow();
         Lesson jDAO = new Lesson(cDTO.getDescription(), choice.getMessage().getContent(), cDTO.getLessonType(), cDTO.getPrice());
         Lesson j = lessonRepository.save(jDAO);

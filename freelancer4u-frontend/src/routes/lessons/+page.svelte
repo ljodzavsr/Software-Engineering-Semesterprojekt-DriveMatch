@@ -9,7 +9,7 @@
   let nrOfPages = 0;
   let defaultPageSize = 4;
 
-  let priceMin;
+  let priceMax;
   let lessonType;
 
   let lessons = [];
@@ -46,8 +46,8 @@
   function getLessons() {
     let query = "?pageSize=" + defaultPageSize + "&pageNumber=" + currentPage;
 
-    if (priceMin) {
-      query += "&min=" + priceMin;
+    if (priceMax) {
+      query += "&max=" + priceMax;
     }
 
     if (lessonType && lessonType !== "ALL") {
@@ -166,8 +166,10 @@
       <div class="col">
         <label class="form-label" for="type">Type</label>
         <select bind:value={lesson.lessonType} class="form-select" id="type">
-          <option value="PRACTICAL">PRACTICAL</option>
-          <option value="THEORY">THEORY</option>
+          <option value="FUNDAMENTALS">FUNDAMENTALS</option>
+          <option value="URBAN">URBAN</option>
+          <option value="HIGHWAY">HIGHWAY</option>
+         <option value="PARKING">PARKING</option>
         </select>
       </div>
       <div class="col">
@@ -196,8 +198,8 @@
       id="pricefilter"
       class="form-control"
       type="number"
-      placeholder="min"
-      bind:value={priceMin}
+      placeholder="max"
+      bind:value={priceMax}
     />
   </div>
   <div class="col-auto">
@@ -206,15 +208,17 @@
   <div class="col-3">
     <select bind:value={lessonType} class="form-select" id="type" type="text">
       <option value="ALL" />
-      <option value="PRACTICAL">PRACTICAL</option>
-      <option value="THEORY">THEORY</option>
+      <option value="FUNDAMENTALS">FUNDAMENTALS</option>
+      <option value="URBAN">URBAN</option>
+      <option value="HIGHWAY">HIGHWAY</option>
+      <option value="PARKING">PARKING</option>
     </select>
   </div>
 
   <div class="col-3">
     <a
       class="btn btn-primary"
-      href={"/lessons?page=1&lessonType=" + lessonType + "&priceMin=" + priceMin}
+      href={"/lessons?page=1&lessonType=" + lessonType + "&priceMax=" + priceMax}
       role="button">Apply</a
     >
   </div>

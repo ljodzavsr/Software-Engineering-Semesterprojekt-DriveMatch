@@ -5,10 +5,14 @@ import java.util.List;
 import ch.zhaw.drivematch.model.Lesson;
 
 public class FiveBucksVoucher implements Voucher {
-    
+
     @Override
     public double getDiscount(List<Lesson> lessons) {
-        double total = lessons.stream().mapToDouble(Lesson::getPrice).sum();
-        return total >= 10 ? 5.0 : 0;
+        var sum = lessons.stream().mapToDouble(p -> p.getPrice()).sum();
+        if (sum >= 10) {
+            return 5;
+        }
+        return 0;
     }
+
 }
