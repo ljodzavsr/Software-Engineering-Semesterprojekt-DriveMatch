@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import ch.zhaw.drivematch.model.Lesson;
 import ch.zhaw.drivematch.model.LessonType;
 
-// XXX Aufgabe 6a)
+// Aufgabe 6a)
 public class FiveBucksVoucherTest {
 
     @Test

@@ -13,7 +13,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import ch.zhaw.drivematch.model.Lesson;
 import ch.zhaw.drivematch.model.LessonType;
 
-// XXX Aufgabe 6c)
+// Aufgabe 6c)
 public class TwoForOneVoucherTest {
 
     @Test
