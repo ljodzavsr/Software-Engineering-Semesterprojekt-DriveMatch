@@ -20,6 +20,8 @@ public class Lesson {
     @NonNull
     private String description;
     @NonNull
+    private String detailDescription;
+    @NonNull
     private LessonType lessonType;
     @NonNull
     private Double price;

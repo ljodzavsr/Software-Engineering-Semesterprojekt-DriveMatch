@@ -15,6 +15,7 @@
   let lessons = [];
   let lesson = {
     description: null,
+    detailDescription: null,
     price: null,
     lessonType: null,
   };
@@ -165,10 +166,8 @@
       <div class="col">
         <label class="form-label" for="type">Type</label>
         <select bind:value={lesson.lessonType} class="form-select" id="type">
-          <option value="OTHER">OTHER</option>
-          <option value="TEST">TEST</option>
-          <option value="IMPLEMENT">IMPLEMENT</option>
-          <option value="REVIEW">REVIEW</option>
+          <option value="PRACTICAL">PRACTICAL</option>
+          <option value="THEORY">THEORY</option>
         </select>
       </div>
       <div class="col">
@@ -194,6 +193,7 @@
   </div>
   <div class="col-3">
     <input
+      id="pricefilter"
       class="form-control"
       type="number"
       placeholder="min"
@@ -206,10 +206,8 @@
   <div class="col-3">
     <select bind:value={lessonType} class="form-select" id="type" type="text">
       <option value="ALL" />
-      <option value="OTHER">OTHER</option>
-      <option value="TEST">TEST</option>
-      <option value="IMPLEMENT">IMPLEMENT</option>
-      <option value="REVIEW">REVIEW</option>
+      <option value="PRACTICAL">PRACTICAL</option>
+      <option value="THEORY">THEORY</option>
     </select>
   </div>
 
@@ -225,6 +223,7 @@
   <thead>
     <tr>
       <th scope="col">Description</th>
+      <th scope="col">Description Detail</th>
       <th scope="col">Type</th>
       <th scope="col">Price</th>
       <th scope="col">State</th>
@@ -236,6 +235,7 @@
     {#each lessons as lesson}
       <tr>
         <td>{lesson.description}</td>
+        <td>{job.detailDescription}</td>
         <td>{lesson.lessonType}</td>
         <td>{lesson.price}</td>
         <td>{lesson.lessonState}</td>

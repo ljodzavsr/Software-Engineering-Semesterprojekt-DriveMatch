@@ -22,6 +22,7 @@ import ch.zhaw.drivematch.model.LessonCreateDTO;
 import ch.zhaw.drivematch.model.LessonStateAggregation;
 import ch.zhaw.drivematch.model.LessonType;
 import ch.zhaw.drivematch.repository.LessonRepository;
+import ch.zhaw.drivematch.service.ChatGPTService;
 import ch.zhaw.drivematch.service.RoleService;
 
 @RestController
@@ -34,12 +35,17 @@ public class LessonController {
     @Autowired
     RoleService roleService;
 
+    @Autowired
+    ChatGPTService chatGPTService;
+
     @PostMapping("/lesson")
     public ResponseEntity<Lesson> createLesson(@RequestBody LessonCreateDTO cDTO, @AuthenticationPrincipal Jwt jwt) {
         if (!roleService.hasRole("admin", jwt)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
-        Lesson jDAO = new Lesson(cDTO.getDescription(), cDTO.getLessonType(), cDTO.getPrice());
+         var chatGPTResponse = chatGPTService.chatWithChatGpt("Erstlele mir eine kurze Beschreibung für die Fahrstunde: " + cDTO.getDescription());
+        var choice = chatGPTResponse.getChoices().stream().findFirst().orElseThrow();
+        Lesson jDAO = new Lesson(cDTO.getDescription(), choice.getMessage().getContent(), cDTO.getLessonType(), cDTO.getPrice());
         Lesson j = lessonRepository.save(jDAO);
         return new ResponseEntity<>(j, HttpStatus.CREATED);
     }
