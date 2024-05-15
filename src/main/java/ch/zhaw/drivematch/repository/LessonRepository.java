@@ -12,11 +12,11 @@ import ch.zhaw.drivematch.model.LessonStateAggregation;
 import ch.zhaw.drivematch.model.LessonType;
 
 public interface LessonRepository extends MongoRepository<Lesson, String> {
-    Page<Lesson> findByPriceSmallerThan(Double price, Pageable pageable);
+    Page<Lesson> findByPriceLessThanEqual(Double price, Pageable pageable);
 
     Page<Lesson> findByLessonType(LessonType lessonType, Pageable pageable);
 
-    Page<Lesson> findByLessonTypeAndPriceSmallerThan(LessonType lessonType, Double price, Pageable pageable);
+    Page<Lesson> findByLessonTypeAndPriceLessThanEqual(LessonType lessonType, Double price, Pageable pageable);
 
     @Aggregation("{$group:{_id:'$lessonState',lessonIds:{$push:'$_id',},count:{$count:{}}}}")
     List<LessonStateAggregation> getLessonStateAggregation();
