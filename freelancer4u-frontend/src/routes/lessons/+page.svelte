@@ -235,7 +235,7 @@
     {#each lessons as lesson}
       <tr>
         <td>{lesson.description}</td>
-        <td>{job.detailDescription}</td>
+        <td>{lesson.detailDescription}</td>
         <td>{lesson.lessonType}</td>
         <td>{lesson.price}</td>
         <td>{lesson.lessonState}</td>
