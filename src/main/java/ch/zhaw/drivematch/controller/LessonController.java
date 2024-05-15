@@ -43,28 +43,31 @@ public class LessonController {
         if (!roleService.hasRole("admin", jwt)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
-         var chatGPTResponse = chatGPTService.chatWithChatGpt("Erstelle mir eine kurze Beschreibung für die Fahrstunde (Preis in Schweizer Franken): " + cDTO.getDescription() + cDTO.getLessonType() + cDTO.getPrice());
+        var chatGPTResponse = chatGPTService.chatWithChatGpt(
+                "Erstelle mir eine kurze Beschreibung für die Fahrstunde (Preis in Schweizer Franken): "
+                        + cDTO.getDescription() + cDTO.getLessonType() + cDTO.getPrice());
         var choice = chatGPTResponse.getChoices().stream().findFirst().orElseThrow();
-        Lesson jDAO = new Lesson(cDTO.getDescription(), choice.getMessage().getContent(), cDTO.getLessonType(), cDTO.getPrice());
+        Lesson jDAO = new Lesson(cDTO.getDescription(), choice.getMessage().getContent(), cDTO.getLessonType(),
+                cDTO.getPrice());
         Lesson j = lessonRepository.save(jDAO);
         return new ResponseEntity<>(j, HttpStatus.CREATED);
     }
 
     @GetMapping("/lesson")
     public ResponseEntity<Page<Lesson>> getAllLessons(
-            @RequestParam(required = false) Double min,
+            @RequestParam(required = false) Double max,
             @RequestParam(required = false) LessonType type,
             @RequestParam(required = false, defaultValue = "1") Integer pageNumber,
             @RequestParam(required = false, defaultValue = "2") Integer pageSize) {
         Page<Lesson> allLessons;
-        if (min == null && type == null) {
+        if (max == null && type == null) {
             allLessons = lessonRepository.findAll(PageRequest.of(pageNumber - 1, pageSize));
         } else {
-            if (min != null && type != null) {
-                allLessons = lessonRepository.findByLessonTypeAndPriceGreaterThan(type, min,
+            if (max != null && type != null) {
+                allLessons = lessonRepository.findByLessonTypeAndPriceGreaterThan(type, max,
                         PageRequest.of(pageNumber - 1, pageSize));
-            } else if (min != null) {
-                allLessons = lessonRepository.findByPriceGreaterThan(min,
+            } else if (max != null) {
+                allLessons = lessonRepository.findByPriceGreaterThan(max,
                         PageRequest.of(pageNumber - 1, pageSize));
             } else {
                 allLessons = lessonRepository.findByLessonType(type, PageRequest.of(pageNumber - 1,

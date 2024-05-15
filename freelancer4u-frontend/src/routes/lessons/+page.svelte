@@ -36,7 +36,7 @@
     }
   }
 
- /*  onMount(() => {
+  /*  onMount(() => {
     // Teilaufgabe 2e)
     // Die Instructor ID könnte man auch im reactive statement holen,
     // dann wird der Endpoint aber unnötig oft aufgerufen.
@@ -129,7 +129,7 @@
   }
 
   // Teilaufgabe 2e)
-   /*  function getMyInstructorId() {
+  /*  function getMyInstructorId() {
     var config = {
       method: "get",
       url: api_root + "/api/me/instructor",
@@ -169,7 +169,7 @@
           <option value="FUNDAMENTALS">FUNDAMENTALS</option>
           <option value="URBAN">URBAN</option>
           <option value="HIGHWAY">HIGHWAY</option>
-         <option value="PARKING">PARKING</option>
+          <option value="PARKING">PARKING</option>
         </select>
       </div>
       <div class="col">
@@ -218,7 +218,10 @@
   <div class="col-3">
     <a
       class="btn btn-primary"
-      href={"/lessons?page=1&lessonType=" + lessonType + "&priceMax=" + priceMax}
+      href={"/lessons?page=1&lessonType=" +
+        lessonType +
+        "&priceMax=" +
+        priceMax}
       role="button">Apply</a
     >
   </div>

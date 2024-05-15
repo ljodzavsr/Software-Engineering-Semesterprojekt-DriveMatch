@@ -35,7 +35,8 @@ public class ServiceController {
     MailService mailService;
 
     @PutMapping("/assignlesson")
-    public ResponseEntity<Lesson> assignLesson(@RequestBody LessonStateChangeDTO changeS, @AuthenticationPrincipal Jwt jwt) {
+    public ResponseEntity<Lesson> assignLesson(@RequestBody LessonStateChangeDTO changeS,
+            @AuthenticationPrincipal Jwt jwt) {
         if (!roleService.hasRole("admin", jwt)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
@@ -50,7 +51,8 @@ public class ServiceController {
     }
 
     @PutMapping("/completelesson")
-    public ResponseEntity<Lesson> completeLesson(@RequestBody LessonStateChangeDTO changeS, @AuthenticationPrincipal Jwt jwt) {
+    public ResponseEntity<Lesson> completeLesson(@RequestBody LessonStateChangeDTO changeS,
+            @AuthenticationPrincipal Jwt jwt) {
         if (!roleService.hasRole("admin", jwt)) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
@@ -91,14 +93,16 @@ public class ServiceController {
     private void sendMail(String instructorEmail, Optional<Lesson> lesson) {
         var mail = new Mail();
         mail.setTo(instructorEmail);
-        mail.setSubject("Assigned lesson " + lesson.get().getDescription() + " with status " + lesson.get().getLessonState());
+        mail.setSubject(
+                "Assigned lesson " + lesson.get().getDescription() + " with status " + lesson.get().getLessonState());
 
-        String mailMessage = "Hi, the lesson " + lesson.get().getDescription() + " was assigned to you. The new status is " + lesson.get().getLessonState();
-        if(lesson.isPresent() && lesson.isPresent() && lesson.get().getLessonState().equals(LessonState.DONE)){
-            mailMessage = "Hi, the lesson " + lesson.get().getDescription() + " was marked as " + lesson.get().getLessonState();
+        String mailMessage = "Hi, the lesson " + lesson.get().getDescription()
+                + " was assigned to you. The new status is " + lesson.get().getLessonState();
+        if (lesson.isPresent() && lesson.isPresent() && lesson.get().getLessonState().equals(LessonState.DONE)) {
+            mailMessage = "Hi, the lesson " + lesson.get().getDescription() + " was marked as "
+                    + lesson.get().getLessonState();
         }
         mail.setMessage(mailMessage);
         mailService.sendMail(mail);
     }
 }
-

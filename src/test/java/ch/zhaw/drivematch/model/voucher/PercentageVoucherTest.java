@@ -27,7 +27,7 @@ public class PercentageVoucherTest {
     public void testVoucher_singleLesson_multipleValues(int discount) {
         var voucher = new PercentageVoucher(discount);
         var lesson = new Lesson("desc1", "detail desc", LessonType.FUNDAMENTALS, 50.0);
-        assertEquals(50*discount/100.0, voucher.getDiscount(Arrays.asList(lesson)), 0.01);
+        assertEquals(50 * discount / 100.0, voucher.getDiscount(Arrays.asList(lesson)), 0.01);
     }
 
     @Test

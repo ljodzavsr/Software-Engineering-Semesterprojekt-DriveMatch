@@ -48,7 +48,6 @@ public class InstructorController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-
         Instructor fDAO = new Instructor(fDTO.getEmail(), fDTO.getName());
         Instructor f = instructorRepository.save(fDAO);
         return new ResponseEntity<>(f, HttpStatus.CREATED);

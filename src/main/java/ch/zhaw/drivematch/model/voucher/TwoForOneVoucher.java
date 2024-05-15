@@ -17,7 +17,7 @@ public class TwoForOneVoucher implements Voucher {
     public double getDiscount(List<Lesson> lessons) {
         var filteredLessons = lessons.stream().filter(p -> this.lessonType.equals(p.getLessonType())).toList();
         var sum = filteredLessons.stream().mapToDouble(p -> p.getPrice()).sum();
-        if (filteredLessons.size() <=1) {
+        if (filteredLessons.size() <= 1) {
             return 0;
         }
         return sum / 2;

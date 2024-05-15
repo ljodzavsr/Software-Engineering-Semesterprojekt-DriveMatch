@@ -3,7 +3,7 @@
   import axios from "axios";
   import { jwt_token } from "../../store";
 
-  const api_root = $page.url.origin; 
+  const api_root = $page.url.origin;
 
   let currentPage;
   let nrOfPages = 0;
@@ -16,8 +16,8 @@
     name: null,
   };
 
- /* onMount(() => {
-    getFreelancers();
+  /* onMount(() => {
+    getInstructors();
   }); */
 
   $: {
@@ -59,7 +59,7 @@
       url: api_root + "/api/instructor",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer "+$jwt_token
+        Authorization: "Bearer " + $jwt_token,
       },
       data: instructor,
     };
@@ -75,29 +75,31 @@
       });
   }
 
-  function validateEmailAndcreateInstructor(){
+  function validateEmailAndcreateInstructor() {
     var config = {
-            method: "get",
-            url: "https://disify.com/api/email/" + instructor.email
-        };
+      method: "get",
+      url: "https://disify.com/api/email/" + instructor.email,
+    };
 
     axios(config)
-        .then(function (response) {
-            console.log("Validated email "+instructor.email);
-            console.log(response.data);
-            if(response.data.format && !response.data.disposable 
-               && response.data.dns){
-                createInstructor();
-            }else{
-                alert("Email "+instructor.email+" is not valid.");
-            }
-        })
-        .catch(function (error) {
-            alert("Could not validate email");
-            console.log(error);
-        });
-}
-
+      .then(function (response) {
+        console.log("Validated email " + instructor.email);
+        console.log(response.data);
+        if (
+          response.data.format &&
+          !response.data.disposable &&
+          response.data.dns
+        ) {
+          createInstructor();
+        } else {
+          alert("Email " + instructor.email + " is not valid.");
+        }
+      })
+      .catch(function (error) {
+        alert("Could not validate email");
+        console.log(error);
+      });
+  }
 </script>
 
 <h1 class="mt-3">Create Instructor</h1>
@@ -124,8 +126,10 @@
       />
     </div>
   </div>
-  <button type="button" class="btn btn-primary" on:click={validateEmailAndcreateInstructor}
-    >Submit</button
+  <button
+    type="button"
+    class="btn btn-primary"
+    on:click={validateEmailAndcreateInstructor}>Submit</button
   >
 </form>
 

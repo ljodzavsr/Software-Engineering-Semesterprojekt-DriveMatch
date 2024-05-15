@@ -18,5 +18,5 @@ public class Instructor {
     @NonNull
     private String email;
     @NonNull
-    private String name; 
+    private String name;
 }
