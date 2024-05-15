@@ -44,7 +44,7 @@ public class LessonController {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
         var chatGPTResponse = chatGPTService.chatWithChatGpt(
-                "Erstelle mir eine kurze Beschreibung für die Fahrstunde (Preis in Schweizer Franken): "
+                "Erstelle mir eine kurze Beschreibung für die Fahrstunde (Preis in Schweizer Franken). Du bekommst von mir jeweils eine description, den Lessontype (fundamentals, urban, highway, parking - das sind die 4 möglichen typen und den Preis bekommst du auch) "
                         + cDTO.getDescription() + cDTO.getLessonType() + cDTO.getPrice());
         var choice = chatGPTResponse.getChoices().stream().findFirst().orElseThrow();
         Lesson jDAO = new Lesson(cDTO.getDescription(), choice.getMessage().getContent(), cDTO.getLessonType(),
