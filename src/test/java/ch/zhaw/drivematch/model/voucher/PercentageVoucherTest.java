@@ -23,7 +23,7 @@ public class PercentageVoucherTest {
     @ValueSource(ints = { 1, 2, 5, 20, 49, 50 })
     public void testVoucher_singleLesson_multipleValues(int discount) {
         var voucher = new PercentageVoucher(discount);
-        var lesson = new Lesson("Autobahn", LessonType.PRACTICAL, 50.0);
+        var lesson = new Lesson("Autobahn", null, LessonType.PRACTICAL, 50.0);
         assertEquals(50 * discount / 100.0, voucher.getDiscount(Arrays.asList(lesson)), 0.01);
     }
 }

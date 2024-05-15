@@ -21,7 +21,7 @@ public class FiveBucksVoucherTest {
     public void testTen() {
         var voucher = new FiveBucksVoucher();
         var lessons = new ArrayList<Lesson>();
-        lessons.add(new Lesson("Autobahnfahrt", LessonType.PRACTICAL, 10.0));
+        lessons.add(new Lesson("Autobahnfahrt", null, LessonType.PRACTICAL, 10.0));
         assertEquals(5, voucher.getDiscount(lessons), 0.01);
     }
 }
