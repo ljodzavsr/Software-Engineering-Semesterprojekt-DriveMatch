@@ -30,7 +30,7 @@ describe("Manage lessons as user", () => {
     });
 
     it("filter by type", () => {
-        cy.get("#typefilter").select("IMPLEMENT");
+        cy.get("#typefilter").select("FUNDAMENTALS");
         cy.contains("Apply").click();
         cy.get("tbody>tr").should("have.length", 2);
     });

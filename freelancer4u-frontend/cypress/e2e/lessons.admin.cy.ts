@@ -29,19 +29,19 @@ describe("Manage lessons as admin", () => {
     it("lessons are created", () => {
         // create first lesson
         cy.get("#description").clear().type("First Lesson");
-        cy.get("#type").select("IMPLEMENT");
+        cy.get("#type").select("HIGHWAY");
         cy.get("#price").clear().type("150");
         cy.contains("Submit").click();
 
         // create second lesson
         cy.get("#description").clear().type("Second Lesson");
-        cy.get("#type").select("TEST");
+        cy.get("#type").select("HIGHWAY");
         cy.get("#price").clear().type("100");
         cy.contains("Submit").click();
 
         // create third lesson
         cy.get("#description").clear().type("Third Lesson");
-        cy.get("#type").select("TEST");
+        cy.get("#type").select("HIGHWAY");
         cy.get("#price").clear().type("140");
         cy.contains("Submit").click();
 
@@ -52,13 +52,13 @@ describe("Manage lessons as admin", () => {
     it("second page exists and has one row", () => {
         // create fourth lesson
         cy.get("#description").clear().type("Fourth Lesson");
-        cy.get("#type").select("IMPLEMENT");
+        cy.get("#type").select("HIGHWAY");
         cy.get("#price").clear().type("110");
         cy.contains("Submit").click();
 
         // create fifth Lesson
         cy.get("#description").clear().type("Fifth Lesson");
-        cy.get("#type").select("TEST");
+        cy.get("#type").select("HIGHWAY");
         cy.get("#price").clear().type("90");
         cy.contains("Submit").click();
 
@@ -79,7 +79,7 @@ describe("Manage lessons as admin", () => {
     });
 
     it("filter by type", () => {
-        cy.get("#typefilter").select("IMPLEMENT");
+        cy.get("#typefilter").select("FUNDAMENTALS");
         cy.contains("Apply").click();
         cy.get("tbody>tr").should("have.length", 2);
     });
