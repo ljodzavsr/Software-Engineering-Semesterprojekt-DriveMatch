@@ -173,7 +173,7 @@
         </select>
       </div>
       <div class="col">
-        <label class="form-label" for="price">Price</label>
+        <label class="form-label" for="price">Hourly rate offered to the customer</label>
         <input
           bind:value={lesson.price}
           class="form-control"
@@ -191,7 +191,7 @@
 <h1>All Lessons</h1>
 <div class="row my-3">
   <div class="col-auto">
-    <label for="" class="col-form-label">Price: </label>
+    <label for="" class="col-form-label">Hourly rate driving instructor: </label>
   </div>
   <div class="col-3">
     <input
@@ -229,7 +229,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Description</th>
+     
+      <!-- <th scope="col">Description</th> -->
+      
       <th scope="col">Description Detail</th>
       <th scope="col">Type</th>
       <th scope="col">Price</th>
@@ -241,7 +243,9 @@
   <tbody>
     {#each lessons as lesson}
       <tr>
-        <td>{lesson.description}</td>
+        
+        <!-- <td>{lesson.description}</td> -->
+       
         <td>{lesson.detailDescription}</td>
         <td>{lesson.lessonType}</td>
         <td>{lesson.price}</td>
