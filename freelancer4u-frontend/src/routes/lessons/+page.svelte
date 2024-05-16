@@ -185,7 +185,7 @@
   <form class="mb-5">
     <div class="row mb-3">
       <div class="col">
-        <label class="form-label" for="description">Description</label>
+        <label class="form-label" for="description">Enter key details for the driving lesson. GPT will generate a detailed description.</label>
         <input
           bind:value={lesson.description}
           class="form-control"
@@ -267,7 +267,7 @@
 
       <th scope="col">Description Detail</th>
       <th scope="col">Type</th>
-      <th scope="col">Offered Price</th>
+      <th scope="col">Offered Hourly Rate</th>
       <th scope="col">State</th>
       <th scope="col">InstructorId</th>
       <th scope="col">Actions</th>

@@ -103,36 +103,7 @@
   }
 </script>
 
-<h1 class="mt-3">Create Instructor</h1>
-<form class="mb-5">
-  <div class="row mb-3">
-    <div class="col">
-      <label class="form-label" for="name">Name</label>
-      <input
-        bind:value={instructor.name}
-        class="form-control"
-        id="name"
-        type="text"
-      />
-    </div>
-  </div>
-  <div class="row mb-3">
-    <div class="col">
-      <label class="form-label" for="email">E-Mail</label>
-      <input
-        bind:value={instructor.email}
-        class="form-control"
-        id="price"
-        type="email"
-      />
-    </div>
-  </div>
-  <button
-    type="button"
-    class="btn btn-primary"
-    on:click={validateEmailAndcreateInstructor}>Submit</button
-  >
-</form>
+
 
 <h1>All Instructors</h1>
 <table class="table">
