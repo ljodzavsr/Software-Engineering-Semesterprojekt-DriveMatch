@@ -19,4 +19,6 @@ public class Instructor {
     private String email;
     @NonNull
     private String name;
+    @NonNull
+    private String lastname;
 }

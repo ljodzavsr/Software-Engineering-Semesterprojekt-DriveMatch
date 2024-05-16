@@ -8,4 +8,5 @@ import lombok.NoArgsConstructor;
 public class InstructorCreateDTO {
     private String email;
     private String name;
+    private String lastname;
 }

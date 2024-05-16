@@ -18,7 +18,11 @@
     detailDescription: null,
     price: null,
     lessonType: null,
+    instructorId: null,
+    instructor: null,
   };
+
+  let instructor = null;
 
   // Teilaufgabe 2e)
   //let myInstructorId;
@@ -62,8 +66,7 @@
 
     axios(config)
       .then(function (response) {
-        lessons = response.data.content;
-
+        getInstructorById(response.data.content)
         nrOfPages = response.data.totalPages;
       })
       .catch(function (error) {
@@ -71,6 +74,35 @@
         console.log(error);
       });
   }
+
+  function getInstructorById(lessonsForInstructors) {
+  const instructorPromises = lessonsForInstructors.map((lesson) => {
+    if (lesson.instructorId) {
+      var config = {
+        method: "get",
+        url: `${api_root}/api/instructor/${lesson.instructorId}`,
+        headers: { Authorization: "Bearer " + $jwt_token },
+      };
+
+      return axios(config).then((response) => {
+        lesson.instructor = response.data.name + " " + response.data.lastname;
+        return lesson;
+      }).catch((error) => {
+        console.log("Could not get instructors", error);
+        return lesson;
+      });
+    } else {
+      return Promise.resolve(lesson);
+    }
+  });
+
+  Promise.all(instructorPromises).then((updatedLessons) => {
+    lessons = updatedLessons;
+    console.log(lessons);
+  }).catch((error) => {
+    console.log("Error updating lessons with instructors", error);
+  });
+}
 
   function createLesson() {
     var config = {
@@ -173,7 +205,9 @@
         </select>
       </div>
       <div class="col">
-        <label class="form-label" for="price">Hourly rate offered to the customer</label>
+        <label class="form-label" for="price"
+          >Hourly rate offered to the customer</label
+        >
         <input
           bind:value={lesson.price}
           class="form-control"
@@ -191,7 +225,7 @@
 <h1>All Lessons</h1>
 <div class="row my-3">
   <div class="col-auto">
-    <label for="" class="col-form-label">Hourly rate driving instructor: </label>
+    <label for="" class="col-form-label">Hourly rate instructor: </label>
   </div>
   <div class="col-3">
     <input
@@ -229,12 +263,11 @@
 <table class="table">
   <thead>
     <tr>
-     
       <!-- <th scope="col">Description</th> -->
-      
+
       <th scope="col">Description Detail</th>
       <th scope="col">Type</th>
-      <th scope="col">Price</th>
+      <th scope="col">Offered Price</th>
       <th scope="col">State</th>
       <th scope="col">InstructorId</th>
       <th scope="col">Actions</th>
@@ -243,14 +276,13 @@
   <tbody>
     {#each lessons as lesson}
       <tr>
-        
         <!-- <td>{lesson.description}</td> -->
-       
+
         <td>{lesson.detailDescription}</td>
         <td>{lesson.lessonType}</td>
         <td>{lesson.price}</td>
         <td>{lesson.lessonState}</td>
-        <td>{lesson.instructorId}</td>
+        <td>{lesson.instructor}</td>
         <td>
           {#if lesson.lessonState === "ASSIGNED"}
             <span class="badge bg-secondary">Assigned</span>

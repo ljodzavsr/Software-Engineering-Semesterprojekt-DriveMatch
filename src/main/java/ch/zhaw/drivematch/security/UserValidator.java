@@ -23,10 +23,11 @@ class UserValidator implements OAuth2TokenValidator<Jwt> {
         if (userEmail != null && !userEmail.equals("")) {
             Instructor f = instructorRepository.findFirstByEmail(userEmail);
             if (f == null) {
-                String username = jwt.getClaimAsString("nickname");
-                instructorRepository.save(new Instructor(userEmail, username));
+                String name = jwt.getClaimAsString("given_name");
+                String lastname = jwt.getClaimAsString("family_name");
+                instructorRepository.save(new Instructor(userEmail, name, lastname));
                 System.out.println("Creating new user:");
-                System.out.println("  - name:  " + username);
+                System.out.println("  - name:  " + name);
                 System.out.println("  - email: " + userEmail);
             }
             return OAuth2TokenValidatorResult.success();

@@ -14,6 +14,7 @@
     id: null,
     email: null,
     name: null,
+    lastname: null,
   };
 
   /* onMount(() => {
@@ -144,7 +145,7 @@
   <tbody>
     {#each instructors as instructor}
       <tr>
-        <td>{instructor.name}</td>
+        <td>{instructor.name} {instructor.lastname}</td>
         <td>{instructor.email}</td>
       </tr>
     {/each}
