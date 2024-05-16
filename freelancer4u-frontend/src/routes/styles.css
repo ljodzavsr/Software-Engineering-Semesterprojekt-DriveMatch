@@ -9,7 +9,12 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #007bff;
+    color: #007bff; /* Titel in Blau */
+    font-weight: bold; /* Fettformat für alle Überschriften */
+}
+
+.white-title {
+    color: #f8f9fa; /* Spezifische Klasse für bestimmte Titel in Weiß */
 }
 
 .navbar {
@@ -35,7 +40,27 @@ h1, h2, h3, h4, h5, h6 {
 
 .card {
     border: none;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: #ffffff;
+    color: #007bff;
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: 1rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-body {
+    background-color: #007bff; /* Hintergrundfarbe der Boxen */
+    color: #ffffff; /* Textfarbe in den Boxen */
+    padding: 1rem;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .form-control:focus {
@@ -51,4 +76,25 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #007bff;
     border-color: #007bff;
     color: #ffffff;
+}
+
+.container h2 {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold; /* Fettformat für h2 */
+}
+
+.container h3 {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold; /* Fettformat für h3 */
+}
+
+.container ul {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+}
+
+.container ul ul {
+    list-style-type: circle;
 }

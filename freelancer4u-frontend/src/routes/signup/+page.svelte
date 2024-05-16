@@ -24,7 +24,7 @@
   }
 </script>
 
-<h1>Sign up</h1>
+<h1 class="white-title">Sign up</h1>
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
@@ -88,7 +88,7 @@
                 <button type="submit" class="btn btn-primary">Sign up</button>
               </div>
               <div class="col-auto">
-                <a href="/">Log in</a>
+                <a href="/" class="btn btn-link white-title">Log in</a>
               </div>
             </div>
           </form>
