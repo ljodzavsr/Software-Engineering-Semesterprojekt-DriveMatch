@@ -61,16 +61,4 @@ public class LessonControllerTest {
         .andReturn();
     }
 
-  
-
-    private String getAllLessons() throws Exception {
-        var result = mvc.perform(get("/api/lesson")
-        .param("pageSize", String.valueOf(Integer.MAX_VALUE))
-        .contentType(MediaType.TEXT_PLAIN))
-        .andDo(print())
-        .andExpect(status().isOk())
-        .andReturn();
-        return result.getResponse().getContentAsString();
-    }
-
 }
