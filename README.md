@@ -18,7 +18,6 @@ DriveMatch is a platform for the efficient management of driving lessons and dri
 - **Create Lessons:** Admins can create driving lessons with basic information and the hourly rate offered to the potential driving student.
 - **Detailed Descriptions:** GPT API generates detailed descriptions based on the entered information.
 - **Instructor List:** Admins can see a table of all registered instructors (users) with first name, last name, and email.
-- **Student Management:** Admins can see a list of all registered students.
 
 ## Technical Architecture
 

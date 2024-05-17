@@ -79,10 +79,6 @@
             <strong>Instructor List:</strong> Admins can see a table of all registered
             instructors (users) with first name, last name, and email.
           </li>
-          <li>
-            <strong>Student Management:</strong> Admins can see a list of all registered
-            students.
-          </li>
         </ul>
       </div>
     </div>
