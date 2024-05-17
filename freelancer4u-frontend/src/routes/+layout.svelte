@@ -22,7 +22,9 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {#if $isAuthenticated && $user.user_roles && $user.user_roles.includes("admin")}
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/instructors">Instructors</a>
+            <a class="nav-link" aria-current="page" href="/instructors"
+              >Instructors</a
+            >
           </li>
         {/if}
         {#if $isAuthenticated}
@@ -37,7 +39,9 @@
       <div class="d-flex">
         {#if $isAuthenticated}
           <span class="navbar-text me-2">{$user.name}</span>
-          <button type="button" class="btn btn-primary" on:click={auth.logout}>Log Out</button>
+          <button type="button" class="btn btn-primary" on:click={auth.logout}
+            >Log Out</button
+          >
         {/if}
       </div>
     </div>

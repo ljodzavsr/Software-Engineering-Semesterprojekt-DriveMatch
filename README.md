@@ -1,34 +1,34 @@
 # DriveMatch
 
-DriveMatch ist eine Plattform zur effizienten Verwaltung von Fahrstunden und Fahrlehrern. 
+DriveMatch is a platform for the efficient management of driving lessons and driving instructors.
 
-## Funktionen
+## Features
 
-### Gemeinsam für User (Fahrlehrer) und Admin (Mitarbeiter der Fahrschule)
+### Common for Users (Instructors) and Admins (Driving School Staff)
 
-- **Anmeldung und Registrierung:** Usermanagement (Sign up, Sign in) durch Auth0.
-- **Fahrstunden verwalten:** 
-  - **Zuweisen und Abschließen:** User und Admin können sich Fahrstunden zuweisen und nach Abschluss als erledigt markieren. 
-  - **Übersicht:** User und Admin sehen eine Liste aller Fahrstunden mit Details, Preis, zugewiesenem Nutzer und Status.
-  - **Filtern nach Typ und Preis:** User und Admin können Fahrstunden nach Typ und ihrem eigenen maximalen Stundensatz filtern.
-- **Account Page:** User und Admin sehen Name, Vorname, E-Mail und Rolle.
+- **Sign Up and Registration:** User management (Sign up, Sign in) through Auth0.
+- **Manage Lessons:**
+  - **Assign and Complete:** Users and Admins can assign driving lessons to themselves and mark them as completed after finishing.
+  - **Overview:** Users and Admins can see a list of all driving lessons with details, price, assigned user, and status.
+  - **Filter by Type and Price:** Users and Admins can filter driving lessons by type and their own maximum hourly rate.
+- **Account Page:** Users and Admins can see their name, first name, email, and role.
 
-### Spezifisch für Admin (Mitarbeiter der Fahrschule)
+### Specific for Admins (Driving School Staff)
 
-- **Erstellen von Fahrstunden:** Admins erstellen Fahrstunden mit grundlegenden Infos und dem individuell angebotenen Preis an den potenziellen Fahrschüler pro Stunde.
-- **Detailbeschreibungen:** GPT-API generiert detaillierte Beschreibungen aus den eingegebenen Informationen.
-- **Fahrlehrerliste:** Admins sehen eine Tabelle aller registrierten Fahrlehrer (User) mit Vorname, Name und E-Mail.
-- **Fahrschülerverwaltung:** Admins sehen eine Liste aller registrierten Fahrschüler.
+- **Create Lessons:** Admins can create driving lessons with basic information and the hourly rate offered to the potential driving student.
+- **Detailed Descriptions:** GPT API generates detailed descriptions based on the entered information.
+- **Instructor List:** Admins can see a table of all registered instructors (users) with first name, last name, and email.
+- **Student Management:** Admins can see a list of all registered students.
 
-## Technische Architektur
+## Technical Architecture
 
 - **Backend:** Spring Boot Framework
 - **Frontend:** Svelte
-- **Datenbank:** MongoDB auf Atlas
+- **Database:** MongoDB on Atlas
 - **Hosting:** Azure App Service
-- **Authentifizierung:** Auth0
-- **Drittsysteme:**
-  - **Disify API:** Zur Validierung von E-Mail-Adressen.
-  - **GPT API:** Zur Generierung detaillierter Fahrstundenbeschreibungen.
-- **Code-Analyse:** SonarCloud zur Code-Analyse und Qualitätssicherung.
-
+- **Authentication:** Auth0
+- **Third-Party Systems:**
+  - **Disify API:** For email validation.
+  - **GPT API:** For generating detailed descriptions of driving lessons.
+- **Code Analysis:** SonarCloud for code analysis and quality assurance.
+- **End-to-End Testing:** Cypress for end-to-end testing.

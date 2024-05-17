@@ -29,7 +29,7 @@ import ch.zhaw.drivematch.security.TestSecurityConfig;
 @AutoConfigureMockMvc
 @TestMethodOrder(OrderAnnotation.class)
 public class LessonControllerTest {
-    
+
     @Autowired
     private MockMvc mvc;
 
@@ -53,12 +53,12 @@ public class LessonControllerTest {
 
         // POST Json to service with authorization header
         mvc.perform(post("/api/lesson")
-        .contentType(MediaType.APPLICATION_JSON)
-        .content(jsonBody)
-        .header(HttpHeaders.AUTHORIZATION, "Bearer token"))
-        .andDo(print())
-        .andExpect(status().isCreated())
-        .andReturn();
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(jsonBody)
+                .header(HttpHeaders.AUTHORIZATION, "Bearer token"))
+                .andDo(print())
+                .andExpect(status().isCreated())
+                .andReturn();
     }
 
 }

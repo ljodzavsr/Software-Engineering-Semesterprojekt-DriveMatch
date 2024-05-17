@@ -39,8 +39,7 @@ public class TestSecurityConfig {
         Instant.now(),
         Instant.now().plusSeconds(30),
         Map.of("alg", "none"),
-        claims
-    );
+        claims);
   }
 
 }

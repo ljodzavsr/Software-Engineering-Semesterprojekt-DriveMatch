@@ -103,8 +103,6 @@
   }
 </script>
 
-
-
 <h1>All Instructors</h1>
 <table class="table">
   <thead>

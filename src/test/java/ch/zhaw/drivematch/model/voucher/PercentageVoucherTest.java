@@ -13,7 +13,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 import ch.zhaw.drivematch.model.Lesson;
 import ch.zhaw.drivematch.model.LessonType;
 
-// Aufgabe 6b)
 public class PercentageVoucherTest {
 
     @Test
@@ -39,7 +38,6 @@ public class PercentageVoucherTest {
         assertEquals(49.98, voucher.getDiscount(Arrays.asList(lesson1, lesson2)), 0.01);
     }
 
-    // Aufgabe 7c)
     @Test
     public void testVoucher_withLessons_Mock() {
         var voucher = new PercentageVoucher(42);
@@ -52,7 +50,6 @@ public class PercentageVoucherTest {
         assertEquals(49.98, voucher.getDiscount(Arrays.asList(lesson1, lesson2)), 0.01);
     }
 
-    // Aufgabe 7b)
     @Test
     public void testVoucher_belowOrEqualZero() {
         var exception1 = assertThrows(RuntimeException.class, () -> {
@@ -65,7 +62,6 @@ public class PercentageVoucherTest {
         assertEquals(PercentageVoucher.errorMessageGreaterZero, exception2.getMessage());
     }
 
-    // Aufgabe 7b)
     @Test
     public void testVoucher_greater50() {
         var exception1 = assertThrows(RuntimeException.class, () -> {

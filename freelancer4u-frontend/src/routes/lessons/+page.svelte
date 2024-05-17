@@ -66,7 +66,7 @@
 
     axios(config)
       .then(function (response) {
-        getInstructorById(response.data.content)
+        getInstructorById(response.data.content);
         nrOfPages = response.data.totalPages;
       })
       .catch(function (error) {
@@ -76,33 +76,38 @@
   }
 
   function getInstructorById(lessonsForInstructors) {
-  const instructorPromises = lessonsForInstructors.map((lesson) => {
-    if (lesson.instructorId) {
-      var config = {
-        method: "get",
-        url: `${api_root}/api/instructor/${lesson.instructorId}`,
-        headers: { Authorization: "Bearer " + $jwt_token },
-      };
+    const instructorPromises = lessonsForInstructors.map((lesson) => {
+      if (lesson.instructorId) {
+        var config = {
+          method: "get",
+          url: `${api_root}/api/instructor/${lesson.instructorId}`,
+          headers: { Authorization: "Bearer " + $jwt_token },
+        };
 
-      return axios(config).then((response) => {
-        lesson.instructor = response.data.name + " " + response.data.lastname;
-        return lesson;
-      }).catch((error) => {
-        console.log("Could not get instructors", error);
-        return lesson;
+        return axios(config)
+          .then((response) => {
+            lesson.instructor =
+              response.data.name + " " + response.data.lastname;
+            return lesson;
+          })
+          .catch((error) => {
+            console.log("Could not get instructors", error);
+            return lesson;
+          });
+      } else {
+        return Promise.resolve(lesson);
+      }
+    });
+
+    Promise.all(instructorPromises)
+      .then((updatedLessons) => {
+        lessons = updatedLessons;
+        console.log(lessons);
+      })
+      .catch((error) => {
+        console.log("Error updating lessons with instructors", error);
       });
-    } else {
-      return Promise.resolve(lesson);
-    }
-  });
-
-  Promise.all(instructorPromises).then((updatedLessons) => {
-    lessons = updatedLessons;
-    console.log(lessons);
-  }).catch((error) => {
-    console.log("Error updating lessons with instructors", error);
-  });
-}
+  }
 
   function createLesson() {
     var config = {
@@ -185,7 +190,10 @@
   <form class="mb-5">
     <div class="row mb-3">
       <div class="col">
-        <label class="form-label" for="description">Enter key details for the driving lesson. GPT will generate a detailed description.</label>
+        <label class="form-label" for="description"
+          >Enter key details for the driving lesson. GPT will generate a
+          detailed description.</label
+        >
         <input
           bind:value={lesson.description}
           class="form-control"
