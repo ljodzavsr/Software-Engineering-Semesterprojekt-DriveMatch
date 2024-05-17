@@ -24,9 +24,6 @@
 
   let instructor = null;
 
-  // Teilaufgabe 2e)
-  //let myInstructorId;
-
   $: {
     if ($jwt_token !== "") {
       let searchParams = $page.url.searchParams;
@@ -39,13 +36,6 @@
       getLessons();
     }
   }
-
-  /*  onMount(() => {
-    // Teilaufgabe 2e)
-    // Die Instructor ID könnte man auch im reactive statement holen,
-    // dann wird der Endpoint aber unnötig oft aufgerufen.
-    getMyInstuctorId();
-  }); */
 
   function getLessons() {
     let query = "?pageSize=" + defaultPageSize + "&pageNumber=" + currentPage;
@@ -164,25 +154,6 @@
         console.log(error);
       });
   }
-
-  // Teilaufgabe 2e)
-  /*  function getMyInstructorId() {
-    var config = {
-      method: "get",
-      url: api_root + "/api/me/instructor",
-      headers: { Authorization: "Bearer " + $jwt_token },
-    };
-
-    axios(config)
-      .then(function (response) {
-        myInstructorId = response.data.id;
-        console.log(myInstructorId);
-      })
-      .catch(function (error) {
-        alert("Could not get Instructor associated to current user");
-        console.log(error);
-      });
-  }  */
 </script>
 
 {#if $user.user_roles && $user.user_roles.length > 0}
@@ -271,8 +242,6 @@
 <table class="table">
   <thead>
     <tr>
-      <!-- <th scope="col">Description</th> -->
-
       <th scope="col">Description Detail</th>
       <th scope="col">Type</th>
       <th scope="col">Offered Hourly Rate</th>
@@ -284,8 +253,6 @@
   <tbody>
     {#each lessons as lesson}
       <tr>
-        <!-- <td>{lesson.description}</td> -->
-
         <td>{lesson.detailDescription}</td>
         <td>{lesson.lessonType}</td>
         <td>{lesson.price}</td>

@@ -31,7 +31,6 @@ if (sessionToken) {
     sessionStorage.setItem("jwt_token", "");
 }
 
-
 // update the jwt_token and myInstructorId in the sessionStorage on changes
 jwt_token.subscribe(jwt_token => {
     sessionStorage.setItem("jwt_token", jwt_token);

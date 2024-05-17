@@ -17,10 +17,6 @@
     lastname: null,
   };
 
-  /* onMount(() => {
-    getInstructors();
-  }); */
-
   $: {
     if ($jwt_token !== "") {
       let searchParams = $page.url.searchParams;
