@@ -32,4 +32,4 @@ Die Analyse mit SonarQube zeigte insgesamt eine gute Codequalität. Es wurden je
 - **Zuverlässigkeit**: 13 offene Probleme, hauptsächlich von mittlerer Priorität, die sich auf die Zuverlässigkeit der Anwendung auswirken könnten.
 - **Wartbarkeit**: 57 offene Probleme, die die Wartbarkeit des Codes beeinträchtigen, darunter auch 2 mit hoher Priorität.
 
-Link zum öffentlichen SonarQube: https://sonarcloud.io/project/overview?id=zhaw-semesterprojekt_ch-zhaw-ljodzvis-drivematch
+#### Link zum öffentlichen SonarQube: https://sonarcloud.io/project/overview?id=zhaw-semesterprojekt_ch-zhaw-ljodzvis-drivematch
