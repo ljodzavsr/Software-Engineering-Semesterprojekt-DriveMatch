@@ -8,7 +8,7 @@
 
 ## Klassendiagramm mit dem technischen Datenmodell mit Erläuterungen
 
-![Technisches Klassendiagramm](figures/technisches_klassendiagramm.svg)
+![Technisches Klassendiagramm](figures/technisches_klassendiagramm.drawio.svg)
 
 ### User
 

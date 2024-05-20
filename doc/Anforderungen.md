@@ -38,7 +38,7 @@
 
 ## Fachliches Datenmodell (ER-Diagramm) mit Erläuterungen
 
-![ER-diagram](figures/ER-diagram.svg)
+![ER-diagram](figures/ER-diagram.drawio.svg)
 
 ### Entitäten und Beziehungen:
 
@@ -54,7 +54,7 @@
 
 ## Prozessmodell (BPMN-Diagramm) mit Erläuterungen
 
-![BPMN-diagram](figures/BPMN-diagram.svg)
+![BPMN-diagram](figures/BPMN-diagram.drawio.svg)
 
 ### Zustände und Übergänge
 
