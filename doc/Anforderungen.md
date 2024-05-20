@@ -1,109 +1,81 @@
-# *USE-CASE DIAGRAMM: DriveMatch*
+# Anforderungen und Spezifikationen für DriveMatch
+
+## Use-Case Diagramm und Use-Case Beschreibung
 
 ![Use case diagram](figures/use-case-diagram.drawio.svg)
 
+### Haupt-Use-Cases:
+
+1. **Fahrstunden selbst zuweisen**
+   - **Akteure**: Fahrlehrer, Fahrschulmitarbeiter (Admins)
+   - **Beschreibung**: Nutzer und Admins weisen sich selbst Fahrstunden zu und markieren diese nach Abschluss als vollendet.
+
+2. **Fahrstunden anzeigen**
+   - **Akteure**: Fahrlehrer, Fahrschulmitarbeiter (Admins)
+   - **Beschreibung**: Alle Nutzer können eine Liste aller Fahrstunden mit Details zur Fahrstunde, dem Fahrstunden-Typ, dem Kunden angebotenen Stundensatz, zugewiesenem Nutzer und Status einsehen.
+
+3. **Fahrstunden filtern**
+   - **Akteure**: Fahrlehrer, Fahrschulmitarbeiter (Admins)
+   - **Beschreibung**: Nutzer können Fahrstunden nach Typ und ihrem maximalen Stundensatz filtern.
+
+4. **Fahrstunden erstellen**
+   - **Akteure**: Fahrschulmitarbeiter (Admins)
+   - **Beschreibung**: Admins erstellen Fahrstunden, indem sie grundlegende Informationen, den Fahrstunden-Typ und den angebotenen Stundensatz eingeben.
+
+5. **Registrieren und Anmelden**
+   - **Akteure**: Fahrlehrer, Fahrschulmitarbeiter (Admins)
+   - **Beschreibung**: Nutzer verwalten ihre Konten durch Registrierung und Anmeldung mittels Auth0.
+
+6. **Account-Detailseite anzeigen**
+   - **Akteure**: Fahrlehrer, Fahrschulmitarbeiter (Admins)
+   - **Beschreibung**: Nutzer können ihre Account-Details wie Name, Vorname, E-Mail und Rolle einsehen.
+
+7. **Liste aller Fahrlehrer anzeigen**
+   - **Akteure**: Fahrschulmitarbeiter (Admins)
+   - **Beschreibung**: Admins können eine Liste aller registrierten Fahrlehrer mit Details wie Vorname, Nachname und E-Mail einsehen.
+
 ---
 
-## Use-Case Beschreibungen
+## Fachliches Datenmodell (ER-Diagramm) mit Erläuterungen
 
-### Mitarbeiter DriveMatch
+![ER-diagram](figures/ER-diagram.svg)
 
-#### Fahrstunden anzeigen
-> **Ziel**: Ermöglicht es Mitarbeitern von DriveMatch und registrierten Fahrlehrern, alle geplanten Fahrstunden einzusehen.
-> 
-> **Ablauf**:
-> 1. Der Mitarbeiter oder der Fahrlehrer navigiert zur Option "Fahrstunden anzeigen".
-> 2. Das System listet alle geplanten Fahrstunden auf.
+### Entitäten und Beziehungen:
 
-#### Fahrstunde planen
-> **Ziel**: Mitarbeiter können neue Fahrstunden im System eintragen und planen.
-> 
-> **Ablauf**:
-> 1. Der Mitarbeiter navigiert zur Option "Fahrstunde planen".
-> 2. Er gibt Details wie Datum, Uhrzeit, Fahrlehrer und Typ der Fahrstunde ein.
-> 3. Das System speichert die Fahrstunde und bestätigt die Eingabe.
+- **User**
+  - Attribute: id, name, lastname, email, role
+  - Beziehungen: Kann mehrere Fahrstunden sich selbst zuweisen. Kann auf Account-Details und Fahrlehrerliste (nur Admins) zugreifen.
 
-#### Alle Fahrlehrer anzeigen
-> **Ziel**: Ermöglicht es Mitarbeitern, eine Liste aller registrierten Fahrlehrer einzusehen.
-> 
-> **Ablauf**:
-> 1. Der Mitarbeiter wählt die Option "Alle Fahrlehrer anzeigen".
-> 2. Das System zeigt eine Liste mit Details zu jedem Fahrlehrer.
+- **Lesson**
+  - Attribute: id, description, price, lessonStatus, lessonType, instructor_id
+  - Beziehungen: Wird von einem Fahrlehrer oder Admin selbst zugewiesen und entsprechend abgeschlossen.
 
-#### Dashboard Status
-> **Ziel**: Überblick über den aktuellen Status von Fahrstunden und Fahrlehrern.
-> 
-> **Ablauf**:
-> 1. Der Mitarbeiter öffnet das Dashboard.
-> 2. Das System präsentiert aktuelle Statistiken und Statusinformationen zu Fahrstunden und Verfügbarkeiten.
+---
 
-### Fahrlehrer
+## Prozessmodell (BPMN-Diagramm) mit Erläuterungen
 
-#### Registrieren
-> **Ziel**: Ermöglicht neuen Fahrlehrern, sich im System zu registrieren.
-> 
-> **Ablauf**:
-> 1. Der Fahrlehrer gibt seine persönlichen Informationen in ein Registrierungsformular ein.
-> 2. Das System erstellt ein neues Fahrlehrerprofil und bestätigt die Registrierung.
+![BPMN-diagram](figures/BPMN-diagram.svg)
 
-#### Eigene Daten anzeigen
-> **Ziel**: Fahrlehrer können ihre persönlichen und beruflichen Daten einsehen und aktualisieren.
-> 
-> **Ablauf**:
-> 1. Der Fahrlehrer wählt "Eigene Daten anzeigen".
-> 2. Das System zeigt die gespeicherten Informationen an, die der Fahrlehrer bei Bedarf aktualisieren kann.
+### Zustände und Übergänge
 
-#### Fahrstunde buchen
-> **Ziel**: Ermöglicht Fahrlehrern, verfügbare Fahrstunden zu buchen.
-> 
-> **Ablauf**:
-> 1. Der Fahrlehrer wählt eine verfügbare Fahrstunde aus.
-> 2. Das System bestätigt die Buchung und aktualisiert den Status der Fahrstunde.
+Das Zustandsdiagramm veranschaulicht den Lebenszyklus einer Fahrstunde auf der DriveMatch Plattform. Nachfolgend die Beschreibung der einzelnen Zustände und Übergänge:
 
-#### Fahrstunde abschließen
-> **Ziel**: Markiert eine durchgeführte Fahrstunde als abgeschlossen.
-> 
-> **Ablauf**:
-> 1. Der Fahrlehrer gibt an, dass eine Fahrstunde abgeschlossen wurde.
-> 2. Das System aktualisiert den Status der Fahrstunde und informiert den Fahrschüler.
+#### Zustände
 
-## Fachliches Datenmodell (ER-Modell)
+- **NEW**: Die Fahrstunde ist neu erfasst und noch keinem Nutzer (Fahrlehrer oder Admin) zugewiesen.
+- **ASSIGNED**: Ein Nutzer hat die Fahrstunde übernommen und ist nun dafür verantwortlich.
+- **DONE**: Die Fahrstunde wurde von dem Nutzer, der sie übernommen hatte, als abgeschlossen markiert.
 
-### Entitäten und Beziehungen
+#### Übergänge
 
-#### Fahrlehrer
-- **Attribute**:
-  - `id`: Eindeutige Identifikationsnummer
-  - `name`: Name des Fahrlehrers
-  - `email`: E-Mail-Adresse
-- **Beziehungen**:
-  - Unterrichtet `Fahrstunden`
+- **Fahrstunde wird erfasst**: Der Startpunkt des Prozesses, wenn eine neue Fahrstunde im System erfasst wird. Dieser Schritt wird typischerweise von einem Administrator durchgeführt, der eine Fahrstunde mit den notwendigen Details wie Beschreibung, Typ und Preis erstellt.
+- **User übernimmt Fahrstunde**: Ein Nutzer, sei es ein Fahrlehrer oder ein Administrator mit entsprechenden Berechtigungen, nimmt die Fahrstunde an sich. Dieser Übergang führt zum Zustand `ASSIGNED`.
+- **User markiert die Fahrstunde als erledigt**: Nach Durchführung der Fahrstunde markiert der Nutzer diese als `DONE`. Dies schließt den Lebenszyklus der Fahrstunde ab und zeigt an, dass keine weiteren Aktionen erforderlich sind.
 
-#### Fahrstunde
-- **Attribute**:
-  - `id`: Eindeutige Identifikationsnummer
-  - `date`: Datum der Fahrstunde
-  - `time`: Uhrzeit der Fahrstunde
-  - `type`: Typ der Fahrstunde (Theorie, Praxis)
-  - `status`: Status (geplant, gebucht, abgeschlossen)
-- **Beziehungen**:
-  - Wird unterrichtet von `Fahrlehrer`
+---
 
-## Prozessmodell (BPMN)
+## UI-Mockup
 
-### Prozessbeschreibung
+### Skizze des User Interfaces
 
-#### 1. Fahrstunde planen
-- **Start Event**: Mitarbeiter erreicht das Planungsmodul.
-- **Task**: Eingabe der Fahrstundendetails.
-- **End Event**: Fahrstunde ist geplant und gespeichert.
-
-#### 2. Fahrstunde buchen
-- **Start Event**: Fahrlehrer wählt verfügbare Fahrstunde.
-- **Task**: Auswahl und Buchung der Fahrstunde.
-- **End Event**: Fahrstunde ist erfolgreich gebucht.
-
-#### 3. Fahrstunde abschließen
-- **Start Event**: Fahrlehrer markiert Fahrstunde als abgeschlossen.
-- **Task**: Bestätigung des Abschlusses der Fahrstunde.
-- **End Event**: Fahrstunde ist im System als abgeschlossen markiert.
+#### Link: https://app.uizard.io/p/a8cf3f2c

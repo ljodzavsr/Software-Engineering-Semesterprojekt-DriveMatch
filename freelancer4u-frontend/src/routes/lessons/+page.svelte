@@ -177,10 +177,14 @@
       <div class="col">
         <label class="form-label" for="type">Type</label>
         <select bind:value={lesson.lessonType} class="form-select" id="type">
+          <option value="BEGINNER">BEGINNER</option>
+          <option value="INTERMEDIATE">INTERMEDIATE</option>
+          <option value="ADVANCED">ADVANCED</option>
           <option value="FUNDAMENTALS">FUNDAMENTALS</option>
           <option value="URBAN">URBAN</option>
           <option value="HIGHWAY">HIGHWAY</option>
           <option value="PARKING">PARKING</option>
+          <option value="REFRESHER">REFRESHER</option>
         </select>
       </div>
       <div class="col">
@@ -221,10 +225,14 @@
   <div class="col-3">
     <select bind:value={lessonType} class="form-select" id="type" type="text">
       <option value="ALL" />
+      <option value="BEGINNER">BEGINNER</option>
+      <option value="INTERMEDIATE">INTERMEDIATE</option>
+      <option value="ADVANCED">ADVANCED</option>
       <option value="FUNDAMENTALS">FUNDAMENTALS</option>
       <option value="URBAN">URBAN</option>
       <option value="HIGHWAY">HIGHWAY</option>
       <option value="PARKING">PARKING</option>
+      <option value="REFRESHER">REFRESHER</option>
     </select>
   </div>
 

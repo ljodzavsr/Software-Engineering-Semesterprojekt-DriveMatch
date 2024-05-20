@@ -1,5 +1,5 @@
 package ch.zhaw.drivematch.model;
 
 public enum LessonType {
-    FUNDAMENTALS, URBAN, HIGHWAY, PARKING
+    BEGINNER, INTERMEDIATE, ADVANCED, FUNDAMENTALS, URBAN, HIGHWAY, PARKING, REFRESHER 
 }
