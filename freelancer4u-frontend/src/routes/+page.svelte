@@ -60,6 +60,10 @@
             <strong>Account Page:</strong> Users and Admins can see their name, first
             name, email, and role.
           </li>
+          <li>
+            <strong>Weather Forecast:</strong> Users and Admins can see the current
+            weather forecast and a 5-day forecast for Zurich.
+          </li>
         </ul>
 
         <h3 class="white-title underline">
@@ -101,6 +105,10 @@
               <li>
                 <strong>GPT API:</strong> For generating detailed descriptions of
                 driving lessons.
+              </li>
+              <li>
+                <strong>OpenWeatherMap API:</strong> For providing weather forecast
+                data.
               </li>
             </ul>
           </li>

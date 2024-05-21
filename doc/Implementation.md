@@ -78,6 +78,17 @@ Die Account-Seite zeigt die Benutzerinformationen, einschliesslich:
 - **E-Mail**: Die E-Mail-Adresse des Benutzers.
 - **Rollen**: Die Rollen des Benutzers innerhalb der Plattform (z.B. Admin).
 
+### 8. Wettervorhersage anzeigen
+
+![Wettervorhersage](figures/WeatherForecast.png)
+
+Die Wettervorhersage-Seite zeigt die aktuelle Wettervorhersage für Zürich. Sie umfasst:
+
+- **Datum und Uhrzeit**: Das Datum und die Uhrzeit der Vorhersage.
+- **Temperatur**: Die vorhergesagte Temperatur in Celsius.
+- **Wetter**: Eine kurze Beschreibung des Wetters (z.B. leichter Regen, bewölkt).
+- **Luftfeuchtigkeit**: Die vorhergesagte Luftfeuchtigkeit in Prozent.
+
 ---
 
 ## Klassendiagramm mit dem technischen Datenmodell mit Erläuterungen
@@ -110,6 +121,16 @@ Die Account-Seite zeigt die Benutzerinformationen, einschliesslich:
   - `Lesson(description, price, lessonType, lessonState, instructor_id)`: Konstruktor mit Parametern zur Initialisierung einer Fahrstunde.
   - Getter und Setter für alle Attribute.
 
+### Weather
+
+- **Attribute:**
+  - `id: String`: Eindeutige Identifikationsnummer des Wetterdatensatzes.
+  - `date: Date`: Datum des Wetterdatensatzes.
+  - `time: String`: Uhrzeit des Wetterdatensatzes.
+  - `temperature: Double`: Temperatur in Celsius.
+  - `description: String`: Beschreibung des Wetters (z.B. leicht bewölkt).
+  - `humidity: Integer`: Luftfeuchtigkeit in Prozent.
+
 ### Enumerations
 
 #### LessonType
@@ -135,6 +156,9 @@ Die Account-Seite zeigt die Benutzerinformationen, einschliesslich:
 
 - **User zu Lesson**:
   - Ein `User` kann mehrere `Lesson`-Objekte zugeordnet haben (0..*), was die Möglichkeit reflektiert, dass ein Fahrlehrer mehrere Fahrstunden leiten kann.
+
+- **Weather**:
+  - `Weather` hat keine direkte Beziehung zu `User` oder `Lesson`.
 
 ---
 
@@ -188,3 +212,11 @@ Die Account-Seite zeigt die Benutzerinformationen, einschliesslich:
 - **Automatisierte Tests:** Cypress führt automatisierte Tests durch, um sicherzustellen, dass alle Funktionalitäten der Plattform wie erwartet funktionieren.
 - **Testberichte:** Das Tool erstellt ausführliche Testberichte, die zeigen, welche Tests erfolgreich waren und welche fehlgeschlagen sind.
 - **Debugging:** Cypress bietet umfangreiche Debugging-Möglichkeiten, um Fehler schnell zu identifizieren und zu beheben.
+
+### OpenWeatherMap API
+
+**Aufgabe:** Bereitstellung von Wetterdaten
+
+**Funktionalitäten:**
+
+- **Wettervorhersage:** Die OpenWeatherMap API wird verwendet, um die aktuelle Wettervorhersage und eine 5-Tage-Vorhersage für Zürich abzurufen. Dies umfasst Daten wie Temperatur, Wetterbeschreibung und Luftfeuchtigkeit.

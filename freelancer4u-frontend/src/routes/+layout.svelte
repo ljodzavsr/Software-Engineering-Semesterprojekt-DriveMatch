@@ -34,6 +34,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/account">Account</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/weather">Weather Forecast</a>
+          </li>
         {/if}
       </ul>
       <div class="d-flex">

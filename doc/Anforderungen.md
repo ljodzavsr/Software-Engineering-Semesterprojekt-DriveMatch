@@ -34,6 +34,10 @@
    - **Akteure**: Fahrschulmitarbeiter (Admins)
    - **Beschreibung**: Admins können eine Liste aller registrierten Fahrlehrer mit Details wie Vorname, Nachname und E-Mail einsehen.
 
+8. **Forecast Wetter anzeigen**
+   - **Akteure**: Fahrlehrer, Fahrschulmitarbeiter (Admins)
+   - **Beschreibung**: Der Akteur kann die Wettervorhersage für Zürich einsehen, um Fahrstunden besser planen zu können.
+
 ---
 
 ## Fachliches Datenmodell (ER-Diagramm) mit Erläuterungen
@@ -49,6 +53,10 @@
 - **Lesson**
   - Attribute: id, description, price, lessonStatus, lessonType, instructor_id
   - Beziehungen: Wird von einem Fahrlehrer oder Admin selbst zugewiesen und entsprechend abgeschlossen.
+
+- **Weather**
+  - Attribute: id, date, time, temperature, description, humidity
+  - Beziehungen: Keine direkte Beziehung zu User oder Lesson.
 
 ---
 

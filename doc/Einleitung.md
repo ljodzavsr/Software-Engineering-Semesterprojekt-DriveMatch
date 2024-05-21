@@ -3,30 +3,39 @@
 ## Explore Board: DriveMatch
 
 ### Trends & Technologie
+
 > Webbasierte Plattformen, die die Interaktion zwischen Fahrschulmitarbeitern und Fahrlehrern vereinfachen und Dienstleistungen rund um die Zuweisung und Verwaltung von Fahrstunden effizienter gestalten.
 
 ### Potentielle Partner & Wettbewerb
+
 > Lokale und überregionale Fahrschulen, unabhängige Fahrlehrer, bestehende Vermittlungsplattformen für Fahrschulen.
 
 ### Fakten
+
 > Statistiken zur Nutzung von Verwaltungssystemen in der Fahrschulbranche, Trends bei der Digitalisierung von administrativen Dienstleistungen.
 
 ### Potenzialfelder
+
 > Automatisierung von Zuweisungs- und Verwaltungsprozessen, Verbesserung der Kommunikation zwischen Fahrschulen und Fahrlehrern.
 
 ### User
+
 > Fahrschulmitarbeiter, die für die Zuweisung und Verwaltung von Fahrstunden verantwortlich sind; Fahrlehrer, die sich für Stunden eintragen.
 
 ### Bedürfnisse
+
 > Werkzeuge zur einfachen Verwaltung und transparente Darstellung von Fahrstunden.
 
 ### Erkenntnisse
+
 > Der Bedarf an einer zentralisierten, benutzerfreundlichen Plattform, die Transparenz und Zugänglichkeit für Fahrlehrer und Fahrschulmitarbeiter maximiert.
 
 ### Touchpoints
+
 > Webportal, mobile Anwendungen, Integration in bestehende Fahrschulverwaltungssysteme.
 
 ### Wie können wir?
+
 > Entwickeln einer intuitiven Plattform, die alle Aspekte der Stundenplanung und -zuweisung digitalisiert und dabei Benutzerfreundlichkeit und Flexibilität in den Vordergrund stellt.
 
 ---
@@ -34,18 +43,23 @@
 ## Create Board: DriveMatch
 
 ### Ideen-Beschreibung
+
 > Eine innovative Plattform, die Fahrschulen und Fahrlehrer durch einfache und intuitive digitale Werkzeuge verbindet, um die Stundenverwaltung zu optimieren.
 
 ### Adressierte Nutzer
+
 > Fahrschulmitarbeiter und Fahrlehrer, die eine effiziente Verwaltung ihrer Stunden und Dienstleistungen suchen.
 
 ### Adressierte Bedürfnisse
+
 > Digitalisierung der Stundenverwaltungsprozesse, vereinfachte Zuweisung und Planung von Stunden, verbesserte Übersichtlichkeit und Flexibilität.
 
 ### Probleme
+
 > Fehlende Übersichtlichkeit in bestehenden Systemen, ineffiziente Kommunikationswege, umständliche Zuweisungsprozesse.
 
 ### Ideenpotenzial
+
 Mehrwert: Mückenstich vs. Hai-Attacke
 
 🔵🔵🔵🔵🔵🔵⚪️⚪️⚪️⚪️
@@ -59,12 +73,15 @@ Machbarkeit: Hammer vs. Raumschiff
 🔵🔵🔵🔵🔵🔵🔵⚪️⚪️⚪️
 
 ### Das Wow
+
 > Eine nahtlose, intuitive und vollständig integrierte Plattform, die den Alltag von Fahrschulmitarbeitern und Fahrlehrern revolutioniert.
 
 ### High-Level-Konzept
+
 > "Salesforce für Fahrschulen" – ein umfassendes, modulares System, das alle Bedürfnisse von der Planung bis zur Zuweisung abdeckt.
 
 ### Wertversprechen
+
 > DriveMatch bietet eine einzigartige Lösung, die Effizienz steigert, administrative Lasten reduziert und die Zufriedenheit von Mitarbeitern und Fahrlehrern erhöht.
 
 ---
@@ -107,6 +124,6 @@ Machbarkeit: Hammer vs. Raumschiff
 
 ---
 
-# Erkenntnisse aus dem Pitch
+## Erkenntnisse aus dem Pitch
 
 > Basierend auf dem Feedback während des Pitches habe ich mich entschieden, auf die Filterfunktion zu achten, insbesondere bei der Filterung nach Typ der Stunden und maximalem Stundensatz der Fahrlehrer.
