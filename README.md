@@ -12,6 +12,7 @@ DriveMatch is a platform for the efficient management of driving lessons and dri
   - **Overview:** Users and Admins can see a list of all driving lessons with details, price, assigned user, and status.
   - **Filter by Type and Price:** Users and Admins can filter driving lessons by type and their own maximum hourly rate.
 - **Account Page:** Users and Admins can see their name, first name, email, and role.
+- **Weather Forecast:** Users and Admins can see the current weather forecast and a 5-day forecast for Zurich.
 
 ### Specific for Admins (Driving School Staff)
 
@@ -29,5 +30,6 @@ DriveMatch is a platform for the efficient management of driving lessons and dri
 - **Third-Party Systems:**
   - **Disify API:** For email validation.
   - **GPT API:** For generating detailed descriptions of driving lessons.
+  - **OpenWeatherMap API:** For providing weather forecast data.
 - **Code Analysis:** SonarCloud for code analysis and quality assurance.
 - **End-to-End Testing:** Cypress for end-to-end testing.
