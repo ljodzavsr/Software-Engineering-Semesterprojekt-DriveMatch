@@ -32,7 +32,7 @@
             <a class="nav-link" href="/lessons">Lessons</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/weather">Weather Forecast</a>
+            <a class="nav-link" href="/weather">Weather</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/account">Account</a>
