@@ -29,5 +29,6 @@ DriveMatch is a platform for the efficient management of driving lessons and dri
 - **Third-Party Systems:**
   - **Disify API:** For email validation.
   - **GPT API:** For generating detailed descriptions of driving lessons.
+  - **OpenWeatherMap API:** For providing weather forecast data.
 - **Code Analysis:** SonarCloud for code analysis and quality assurance.
 - **End-to-End Testing:** Cypress for end-to-end testing.
