@@ -2,6 +2,7 @@ package ch.zhaw.drivematch.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * Represents a response object for the api https://docs.disify.com/
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
  * https://docs.disify.com/?java#json-response-parameters
  **/
 @Getter
+@Setter
 @NoArgsConstructor
 public class MailInformation {
     private boolean format;

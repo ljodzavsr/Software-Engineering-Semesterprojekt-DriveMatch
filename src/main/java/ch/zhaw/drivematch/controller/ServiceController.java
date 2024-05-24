@@ -32,7 +32,6 @@ public class ServiceController {
     @Autowired
     MailService mailService;
 
-
     @PutMapping("/me/assignlesson")
     public ResponseEntity<Lesson> assignToMe(@RequestParam String lessonId,
             @AuthenticationPrincipal Jwt jwt) {
