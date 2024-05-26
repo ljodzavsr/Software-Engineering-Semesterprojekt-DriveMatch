@@ -6,9 +6,9 @@ Modul- und Integrationstests wurden erstellt, um die Funktionalität der einzeln
 
 ### Implementierung
 
-- **LessonControllerTest.java**: Testet die Funktionalität des Lesson Controllers, einschließlich der Erstellung und Verwaltung von Fahrstunden.
-- **ServiceControllerTest.java**: Testet die Funktionalität des Service Controllers, einschließlich der Zuweisung und Abschließung von Fahrstunden.
-- **InstructorControllerTest.java**: Testet die Funktionalität des Instructor Controllers, einschließlich der Verwaltung und Anzeige von Fahrlehrern.
+- **LessonControllerTest.java**: Testet die Funktionalität des Lesson Controllers, einschliesslich der Erstellung und Verwaltung von Fahrstunden.
+- **ServiceControllerTest.java**: Testet die Funktionalität des Service Controllers, einschliesslich der Zuweisung und Abschliessung von Fahrstunden.
+- **InstructorControllerTest.java**: Testet die Funktionalität des Instructor Controllers, einschliesslich der Verwaltung und Anzeige von Fahrlehrern.
 - **MailServiceTest.java**: Überprüft die E-Mail-Versandfunktionalität des Mail Service.
 - **LessonServiceTest.java**: Überprüft die Geschäftslogik für die Verwaltung von Fahrstunden im Lesson Service.
 - **MailValidatorServiceTest.java**: Überprüft die E-Mail-Validierungsfunktionalität des MailValidator Service.
