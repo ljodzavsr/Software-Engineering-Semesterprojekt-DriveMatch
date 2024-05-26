@@ -78,7 +78,7 @@ Das Zustandsdiagramm veranschaulicht den Lebenszyklus einer Fahrstunde auf der D
 
 - **Fahrstunde wird erfasst**: Der Startpunkt des Prozesses, wenn eine neue Fahrstunde im System erfasst wird. Dieser Schritt wird typischerweise von einem Administrator durchgeführt, der eine Fahrstunde mit den notwendigen Details wie Beschreibung, Typ und Preis erstellt.
 - **User übernimmt Fahrstunde**: Ein Nutzer, sei es ein Fahrlehrer oder ein Administrator mit entsprechenden Berechtigungen, nimmt die Fahrstunde an sich. Dieser Übergang führt zum Zustand `ASSIGNED`.
-- **User markiert die Fahrstunde als erledigt**: Nach Durchführung der Fahrstunde markiert der Nutzer diese als `DONE`. Dies schließt den Lebenszyklus der Fahrstunde ab und zeigt an, dass keine weiteren Aktionen erforderlich sind.
+- **User markiert die Fahrstunde als erledigt**: Nach Durchführung der Fahrstunde markiert der Nutzer diese als `DONE`. Dies schliesst den Lebenszyklus der Fahrstunde ab und zeigt an, dass keine weiteren Aktionen erforderlich sind.
 
 ---
 
