@@ -1,35 +1,38 @@
 # DriveMatch
 
-DriveMatch is a platform for the efficient management of driving lessons and driving instructors.
+DriveMatch ist eine Plattform für die effiziente Verwaltung von Fahrstunden und Fahrlehrern.
 
-## Features
+## Funktionen
 
-### Common for Users (Instructors) and Admins (Driving School Staff)
+### Gemeinsam für Benutzer (Fahrlehrer) und Administratoren (Fahrschulpersonal)
 
-- **Sign Up and Registration:** User management (Sign up, Sign in) through Auth0.
-- **Manage Lessons:**
-  - **Assign and Complete:** Users and Admins can assign driving lessons to themselves and mark them as completed after finishing.
-  - **Overview:** Users and Admins can see a list of all driving lessons with details, price, assigned user, and status.
-  - **Filter by Type and Price:** Users and Admins can filter driving lessons by type and their own maximum hourly rate.
-- **Account Page:** Users and Admins can see their name, first name, email, and role.
-- **Weather Forecast:** Users and Admins can see the current weather forecast and a 5-day forecast for Zurich.
+- **Anmeldung und Registrierung:** Benutzerverwaltung (Anmeldung, Einloggen) durch Auth0.
+- **Verwalten von Fahrstunden:**
+  - **Zuweisen und Abschliessen:** Benutzer und Administratoren können Fahrstunden sich selbst zuweisen und sie nach Abschluss als abgeschlossen markieren.
+  - **Übersicht:** Benutzer und Administratoren können eine Liste aller Fahrstunden mit Details, Preis, zugewiesenem Benutzer und Status sehen.
+  - **Filtern nach Typ und Preis:** Benutzer und Administratoren können Fahrstunden nach Typ und ihrem eigenen maximalen Stundensatz filtern.
+- **Kontoseite:** Benutzer und Administratoren können ihren Namen, Vornamen, E-Mail und Rolle sehen.
+- **Wettervorhersage:** Benutzer und Administratoren können die aktuelle Wettervorhersage und eine 5-Tage-Vorhersage für Zürich sehen.
 
-### Specific for Admins (Driving School Staff)
+### Spezifisch für Administratoren (Fahrschulpersonal)
 
-- **Create Lessons:** Admins can create driving lessons with basic information and the hourly rate offered to the potential driving student.
-- **Detailed Descriptions:** GPT API generates detailed descriptions based on the entered information.
-- **Instructor List:** Admins can see a table of all registered instructors (users) with first name, last name, and email.
+- **Erstellen von Fahrstunden:** Administratoren können Fahrstunden mit grundlegenden Informationen und den dem potenziellen Fahrschüler angebotenen Stundensatz erstellen.
+- **Detaillierte Beschreibungen:** Die GPT-API generiert detaillierte Beschreibungen basierend auf den eingegebenen Informationen.
+- **Fahrlehrerliste:** Administratoren können eine Tabelle aller registrierten Fahrlehrer (Benutzer) mit Vorname, Nachname und E-Mail sehen.
 
-## Technical Architecture
+## Technische Architektur
 
 - **Backend:** Spring Boot Framework
 - **Frontend:** Svelte
-- **Database:** MongoDB on Atlas
+- **Datenbank:** MongoDB auf Atlas
 - **Hosting:** Azure App Service
-- **Authentication:** Auth0
-- **Third-Party Systems:**
-  - **Disify API:** For email validation.
-  - **GPT API:** For generating detailed descriptions of driving lessons.
-  - **OpenWeatherMap API:** For providing weather forecast data.
-- **Code Analysis:** SonarCloud for code analysis and quality assurance.
-- **End-to-End Testing:** Cypress for end-to-end testing.
+  - **Link:** <https://drivematch.azurewebsites.net/>
+
+- **Drittsysteme:**
+  - **Auth0:** Benutzerverwaltung, Authentifizierung/Autorisierung
+  - **SonarCloud:** Code-Analyse und Qualitätssicherung
+  - **Cypress:** End-to-End-Tests
+  - **Postman:** API-Dokumentation
+  - **Disify API:** E-Mail-Validierung
+  - **GPT API:** Generierung detaillierter Beschreibungen von Fahrstunden
+  - **OpenWeatherMap API:** Wettervorhersagedaten

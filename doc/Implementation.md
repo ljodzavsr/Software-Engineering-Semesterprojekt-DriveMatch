@@ -203,6 +203,8 @@ Die Wettervorhersage-Seite zeigt die aktuelle Wettervorhersage für Zürich. Sie
 - **Qualitätsmetriken:** Das Tool bietet eine Übersicht über verschiedene Qualitätsmetriken wie technische Schulden, Code-Abdeckung durch Tests und Komplexität.
 - **Automatisierte Berichte:** SonarCloud generiert regelmässig Berichte und Dashboards, die den aktuellen Zustand des Codes und dessen Qualität darstellen.
 
+**Link:** <https://sonarcloud.io/project/overview?id=zhaw-semesterprojekt_ch-zhaw-ljodzvis-drivematch>
+
 ### Cypress
 
 **Aufgabe:** End-to-End-Testing
@@ -220,3 +222,16 @@ Die Wettervorhersage-Seite zeigt die aktuelle Wettervorhersage für Zürich. Sie
 **Funktionalitäten:**
 
 - **Wettervorhersage:** Die OpenWeatherMap API wird verwendet, um die aktuelle Wettervorhersage und eine 5-Tage-Vorhersage für Zürich abzurufen. Dies umfasst Daten wie Temperatur, Wetterbeschreibung und Luftfeuchtigkeit.
+
+### Postman
+
+**Aufgabe:** API-Entwicklung und -Dokumentation
+
+**Funktionalitäten:**
+
+- **API-Entwicklung:** Postman bietet eine Plattform für das Testen, Entwickeln und Teilen von APIs.
+- **Dokumentation:** Postman ermöglicht die detaillierte Dokumentation von APIs.
+- **Automatisierte Tests:** Postman unterstützt das Schreiben von automatisierten Tests für APIs.
+- **API-Monitoring:** Postman ermöglicht das Überwachen von APIs auf Leistungsprobleme und Ausfälle.
+
+**Link:** <https://documenter.getpostman.com/view/34642847/2sA3JM7gkg>
