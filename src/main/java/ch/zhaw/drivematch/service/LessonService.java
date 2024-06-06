@@ -11,6 +11,10 @@ import ch.zhaw.drivematch.model.LessonState;
 import ch.zhaw.drivematch.repository.InstructorRepository;
 import ch.zhaw.drivematch.repository.LessonRepository;
 
+// Die LessonService-Klasse ermöglicht die Zuweisung und den Abschluss von Lektionen, indem sie den Zustand der Lektionen 
+// aktualisiert und die entsprechenden Instruktoren anhand ihrer E-Mail-Adressen identifiziert. Die Methoden verwenden 
+// Optional, um anzuzeigen, ob die Operation erfolgreich war oder nicht.
+
 @Service
 public class LessonService {
     @Autowired

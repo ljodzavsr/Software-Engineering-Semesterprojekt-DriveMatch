@@ -10,6 +10,7 @@ import lombok.Setter;
  * For informations about the properties see:
  * https://docs.disify.com/?java#json-response-parameters
  **/
+
 @Getter
 @Setter
 @NoArgsConstructor

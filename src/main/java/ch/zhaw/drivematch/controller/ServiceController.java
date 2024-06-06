@@ -19,6 +19,10 @@ import ch.zhaw.drivematch.service.LessonService;
 import ch.zhaw.drivematch.service.MailService;
 import ch.zhaw.drivematch.service.RoleService;
 
+// Der ServiceController bietet Endpunkte, mit denen authentifizierte Benutzer Lektionen sich selbst zuweisen und diese als abgeschlossen
+// markieren können. Bei beiden Aktionen wird eine E-Mail-Benachrichtigung an den Benutzer gesendet. Der Controller verwendet 
+//LessonService zur Verwaltung von Lektionen, RoleService zur Überprüfung von Benutzerrollen und MailService zum Versenden von E-Mails.
+
 @RestController
 @RequestMapping("/api/service")
 public class ServiceController {

@@ -12,6 +12,10 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import ch.zhaw.drivematch.model.MailInformation;
 
+// Die MailValidatorService-Klasse verwendet einen WebClient, um E-Mail-Adressen über eine externe API zu validieren. 
+// Sie konfiguriert den WebClient mit Basis-URL, Standard-Headern und einem Logging-Filter, und führt dann die Validierung 
+// durch eine GET-Anfrage durch, wobei die Antwort in ein MailInformation-Objekt umgewandelt wird.
+
 @Service
 public class MailValidatorService {
     private static final String DISIFY_EMAIL_VALIDATOR_BASE_URL = "https://www.disify.com";

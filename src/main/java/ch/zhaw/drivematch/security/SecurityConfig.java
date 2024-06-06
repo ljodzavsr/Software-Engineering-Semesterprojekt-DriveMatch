@@ -19,6 +19,10 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import ch.zhaw.drivematch.repository.InstructorRepository;
 
+// Die SecurityConfig-Klasse konfiguriert die Sicherheitsrichtlinien der Anwendung, einschließlich der Definition von zugänglichen und 
+// geschützten URL-Mustern sowie der Einrichtung der JWT-basierten Authentifizierung für OAuth2-Resource-Server. 
+// Sie stellt sicher, dass JWTs korrekt dekodiert und validiert werden, wobei benutzerdefinierte Validierungen integriert sind.
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {

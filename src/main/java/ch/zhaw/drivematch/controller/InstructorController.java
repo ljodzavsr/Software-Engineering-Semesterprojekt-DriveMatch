@@ -20,6 +20,11 @@ import ch.zhaw.drivematch.repository.InstructorRepository;
 import ch.zhaw.drivematch.service.MailValidatorService;
 import ch.zhaw.drivematch.service.RoleService;
 
+// Der InstructorController bietet Endpunkte zur Abfrage und Verwaltung von Instruktoren. Er ermöglicht es Administratoren, alle 
+// Instruktoren paginiert abzurufen, einen bestimmten Instruktor anhand der ID zu suchen und ihre eigenen Instruktorendaten basierend 
+// auf der E-Mail-Adresse zu erhalten. Der Controller verwendet InstructorRepository für Datenbankoperationen und RoleService 
+// zur Überprüfung von Benutzerrollen.
+
 @RestController
 @RequestMapping("/api")
 public class InstructorController {

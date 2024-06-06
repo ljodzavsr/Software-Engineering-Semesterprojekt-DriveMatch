@@ -25,6 +25,11 @@ import ch.zhaw.drivematch.repository.LessonRepository;
 import ch.zhaw.drivematch.service.ChatGPTService;
 import ch.zhaw.drivematch.service.RoleService;
 
+// Der LessonController bietet Endpunkte zur Erstellung, Abfrage, Aggregation und Löschung von Lektionen. 
+// Er verwendet LessonRepository für Datenbankoperationen, RoleService zur Rollenüberprüfung und ChatGPTService zur Kommunikation mit 
+// ChatGPT für die automatische Erstellung von Lektionstexten. Die Endpunkte sind so konzipiert, dass sie basierend auf 
+// den Benutzerrollen und angegebenen Filtern verschiedene Operationen durchführen.
+
 @RestController
 @RequestMapping("/api")
 public class LessonController {
